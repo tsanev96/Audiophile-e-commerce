@@ -1,0 +1,119 @@
+.footer {
+  $self: &;
+  padding: rem(50) rem(0) rem(40);
+  @include flexCenter;
+  flex-direction: column;
+  background: $black-color;
+  color: $white-color;
+
+  &__mobile {
+    text-align: center;
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__headline,
+  &__description,
+  &__copyright {
+    margin-bottom: rem(50);
+  }
+
+  &__description {
+    @include tablet {
+      margin-bottom: rem(80);
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    #{$self} {
+      &__bottom {
+        @include flexSpaceBetween;
+      }
+
+      &__copyright {
+        @include tablet {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+
+    #{$self} {
+      &__top {
+        @include flexSpaceBetween;
+      }
+
+      &__middle {
+        @include flexSpaceBetween;
+        align-items: flex-end;
+        margin-bottom: rem(60);
+      }
+
+      &__description {
+        // rems break design
+        width: 50%;
+        margin: 0;
+      }
+    }
+  }
+
+  &__nav {
+    margin-bottom: rem(50);
+    ul {
+      @include tablet {
+        display: flex;
+      }
+      li {
+        margin-bottom: rem(16);
+        @include tablet {
+          margin: 0 rem(25) 0 0;
+        }
+        a {
+          font-size: rem(14);
+          text-transform: uppercase;
+          letter-spacing: rem(2);
+          transition: 0.4s;
+          &:hover {
+            color: $primary-color;
+          }
+          @include tablet {
+            font-size: rem(16);
+          }
+
+          @include desktop {
+            font-size: rem(14);
+          }
+        }
+      }
+    }
+  }
+
+  &__socials {
+    a {
+      margin: 0 rem(8);
+      font-size: rem(30);
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

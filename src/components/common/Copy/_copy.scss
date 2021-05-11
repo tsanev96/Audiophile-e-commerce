@@ -1,0 +1,25 @@
+.copy {
+  &__dark {
+    color: $black-color;
+  }
+
+  &__light {
+    color: $white-color;
+  }
+
+  &__size-sm {
+    font-size: rem(15);
+  }
+
+  &__size-lg {
+    font-size: rem(18);
+  }
+
+  &centered {
+    text-align: center;
+  }
+
+  &.opacity {
+    opacity: 0.25;
+  }
+}

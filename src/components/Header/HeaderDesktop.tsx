@@ -1,8 +1,9 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { navLinks } from "../../data/navLinks";
 import { Headline } from "../common/Headline/Headline";
+import { Navigation } from "../common/Navigation/Navigation";
 import { Wrapper } from "../common/Wrapper/Wrapper";
-import { HeaderLinks } from "./HeaderLinks";
 
 interface HeaderDesktopProps {
   onShowBasket: () => void;
@@ -20,7 +21,7 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
           text="audiophile"
           level="h4"
         />
-        <HeaderLinks />
+        <Navigation data={navLinks} className={`${rootWrapper}__nav`} />
         <div className={`${rootWrapper}__icon`}>
           <AiOutlineShoppingCart onClick={onShowBasket} />
         </div>
