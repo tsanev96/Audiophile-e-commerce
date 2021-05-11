@@ -5,6 +5,7 @@ interface CopyProps {
   isOpacity?: boolean;
   alignCenter?: boolean;
   theme?: "dark" | "light";
+  size?: "sm" | "lg";
   className?: string;
 }
 
@@ -14,13 +15,14 @@ export const Copy: FC<CopyProps> = ({
   alignCenter = "",
   theme = "light",
   className = "",
+  size = "sm",
 }) => {
   const rootWrapper = "copy";
   return (
     <p
-      className={`${rootWrapper} ${isOpacity && `${rootWrapper}__opacity`} ${
-        alignCenter && `${rootWrapper}__centered`
-      } ${rootWrapper}__${theme} ${className}`}
+      className={`${rootWrapper} ${isOpacity && "opacity"} ${
+        alignCenter && "centered"
+      } ${rootWrapper}__${theme}  ${rootWrapper}__size-${size} ${className}`}
     >
       {text}
     </p>

@@ -1,5 +1,10 @@
 .wrapper {
   max-width: rem(325);
+
+  @include tablet {
+    max-width: rem(690);
+  }
+
   @include desktop {
     max-width: rem(1100);
   }

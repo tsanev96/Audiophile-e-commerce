@@ -6,11 +6,20 @@
   &__light {
     color: $white-color;
   }
-  &__centered {
+
+  &__size-sm {
+    font-size: rem(15);
+  }
+
+  &__size-lg {
+    font-size: rem(18);
+  }
+
+  &centered {
     text-align: center;
   }
 
-  &__opacity {
+  &.opacity {
     opacity: 0.25;
   }
 }
