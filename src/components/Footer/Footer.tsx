@@ -1,7 +1,8 @@
 import React from "react";
 import { Wrapper } from "../common/Wrapper/Wrapper";
-import { FooterMobile } from "./FooterMobile";
-import { FooterTablet } from "./FooterTablet";
+import { FooterDesktop } from "./devices/FooterDesktop";
+import { FooterMobile } from "./devices/FooterMobile";
+import { FooterTablet } from "./devices/FooterTablet";
 
 export const Footer = () => {
   const rootWrapper = "footer";
@@ -11,6 +12,7 @@ export const Footer = () => {
       <Wrapper>
         <FooterMobile />
         <FooterTablet />
+        <FooterDesktop />
       </Wrapper>
     </div>
   );

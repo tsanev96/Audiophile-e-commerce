@@ -36,6 +36,11 @@
   justify-content: center;
 }
 
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
 @mixin resetSidePadding {
   padding-left: 0;
   padding-right: 0;
