@@ -5,10 +5,8 @@ import { FooterMobile } from "./devices/FooterMobile";
 import { FooterTablet } from "./devices/FooterTablet";
 
 export const Footer = () => {
-  const rootWrapper = "footer";
-
   return (
-    <div className={rootWrapper}>
+    <div className="footer">
       <Wrapper>
         <FooterMobile />
         <FooterTablet />
