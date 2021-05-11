@@ -1,0 +1,16 @@
+.copy {
+  &__dark {
+    color: $black-color;
+  }
+
+  &__light {
+    color: $white-color;
+  }
+  &__centered {
+    text-align: center;
+  }
+
+  &__opacity {
+    opacity: 0.25;
+  }
+}
