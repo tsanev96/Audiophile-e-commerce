@@ -4,7 +4,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $black-color;
+  background: $black-color;
+  color: $white-color;
 
   padding: rem(50) rem(0) rem(40);
+
+  .headline {
+    margin-bottom: rem(50);
+  }
+
+  &__nav {
+    text-align: center;
+
+    li {
+      margin-bottom: rem(16);
+      a {
+        font-size: rem(14);
+        text-transform: uppercase;
+        letter-spacing: rem(2);
+      }
+    }
+  }
 }

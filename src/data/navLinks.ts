@@ -1,4 +1,4 @@
-export const headerLinks: { to: string; name: string }[] = [
+export const navLinks: { to: string; name: string }[] = [
   {
     to: "/home",
     name: "home",

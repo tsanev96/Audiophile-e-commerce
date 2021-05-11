@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { navLinks } from "../../data/navLinks";
 import { Headline } from "../common/Headline/Headline";
-import { HeaderLinks } from "./HeaderLinks";
+import { Navigation } from "../common/Navigation/Navigation";
 
 interface HeaderMobileProps {
   onShowBasket: () => void;
@@ -43,7 +44,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({ onShowBasket }) => {
           isHamburgerMenuClicked ? "active" : ""
         }`}
       >
-        <HeaderLinks />
+        <Navigation data={navLinks} className={`${rootWrapper}__nav`} />
       </div>
     </div>
   );
