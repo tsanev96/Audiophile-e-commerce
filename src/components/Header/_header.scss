@@ -1,5 +1,4 @@
 .header {
-  padding: rem(30) rem(25);
   background: $black-color;
   color: $white-color;
 
@@ -8,6 +7,7 @@
   }
 
   &__mobile {
+    padding: rem(30) rem(25);
     position: relative;
     height: rem(60);
     @include flexCenter;
@@ -18,8 +18,12 @@
   }
 
   &__desktop {
-    display: flex;
-    justify-content: space-between;
+    display: none;
+    padding: rem(30) rem(25);
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__menu-wrapper {
