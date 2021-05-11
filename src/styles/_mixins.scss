@@ -1,11 +1,5 @@
 @import "./variables";
-
-$base-size: 16;
-//Function to convert px value into rem
-
-@function rem($target, $context: $base-size) {
-  @return #{$target / $context}rem;
-}
+@import "./functions";
 
 @mixin mobile {
   @media (min-width: #{$mobile}) {
@@ -29,4 +23,15 @@ $base-size: 16;
   @media (min-width: #{$desktop}) {
     @content;
   }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin resetSidePadding {
+  padding-left: 0;
+  padding-right: 0;
 }
