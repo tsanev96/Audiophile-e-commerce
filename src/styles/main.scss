@@ -1,0 +1,14 @@
+@import "./variables";
+@import "./fonts";
+@import "./mixins";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $primary-color;
+  font-family: "Manrope-Medium", sans-serif;
+}

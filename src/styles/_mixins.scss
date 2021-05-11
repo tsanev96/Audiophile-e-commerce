@@ -1,0 +1,32 @@
+@import "./variables";
+
+$base-size: 16;
+//Function to convert px value into rem
+
+@function rem($target, $context: $base-size) {
+  @return #{$target / $context}rem;
+}
+
+@mixin mobile {
+  @media (min-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin sm-tablet {
+  @media (min-width: #{$sm-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
