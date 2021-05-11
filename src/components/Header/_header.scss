@@ -1,19 +1,35 @@
 .header {
+  padding: rem(30) rem(25);
+  background: $black-color;
+  color: $white-color;
+
+  @include desktop {
+    @include resetSidePadding;
+  }
+
   &__mobile {
     position: relative;
     height: rem(60);
     @include flexCenter;
-    padding: rem(30) rem(25);
-    background: $black-color;
-    color: $white-color;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__menu-wrapper {
-    position: relative;
-
+    display: flex;
+    align-items: center;
     .hamburger-menu {
+      position: relative;
       width: rem(25);
       height: rem(20);
+      margin-right: rem(30);
 
       & > *:first-child {
         width: 100%;
@@ -78,22 +94,68 @@
 
   &__nav {
     padding: rem(30);
+    @include desktop {
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
     ul {
       list-style-type: none;
+
+      @include desktop {
+        display: flex;
+      }
+
       li {
         margin-bottom: rem(10);
 
+        @include desktop {
+          margin: 0 rem(35) 0 0;
+        }
         a {
           color: $white-color;
           text-transform: uppercase;
           font-size: rem(18);
+          font-family: "Manrope-Bold";
+          transition: 0.4s;
+          @include desktop {
+            font-size: rem(16);
+          }
+
+          &:hover {
+            color: $primary-color;
+          }
         }
       }
     }
   }
-  &__headline {
+  &__headline-mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+  &__headline-tablet {
+    display: none;
+    @include tablet {
+      display: block;
+    }
   }
 
   &__icon {
+    svg {
+      font-size: rem(25);
+      cursor: pointer;
+      transition: 0.4s;
+
+      &:hover {
+        color: $primary-color;
+        transform: scale(1.2);
+      }
+
+      @include desktop {
+        font-size: rem(30);
+      }
+    }
   }
 }
