@@ -1,0 +1,99 @@
+.header {
+  &__mobile {
+    position: relative;
+    height: rem(60);
+    @include flexCenter;
+    padding: rem(30) rem(25);
+    background: $black-color;
+    color: $white-color;
+  }
+
+  &__menu-wrapper {
+    position: relative;
+
+    .hamburger-menu {
+      width: rem(25);
+      height: rem(20);
+
+      & > *:first-child {
+        width: 100%;
+        height: rem(2.5);
+        background: $white-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: rem(7);
+          left: 0;
+          width: 100%;
+          height: rem(2.5);
+          background: $white-color;
+          transition: 0.6s;
+        }
+
+        &::after {
+          top: rem(14);
+        }
+      }
+
+      &.active {
+        transition: 0.6s;
+
+        & > * {
+          background-color: transparent;
+          &::before,
+          &::after {
+            top: rem(7);
+          }
+          &::before {
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__nav-mobile-wrapper {
+    position: absolute;
+    top: rem(60);
+    left: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    background: $secondary-color;
+    text-align: center;
+
+    &.active {
+      transform: translate(0);
+    }
+  }
+
+  &__nav {
+    padding: rem(30);
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: rem(10);
+
+        a {
+          color: $white-color;
+          text-transform: uppercase;
+          font-size: rem(18);
+        }
+      }
+    }
+  }
+  &__headline {
+  }
+
+  &__icon {
+  }
+}
