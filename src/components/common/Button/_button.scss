@@ -1,0 +1,23 @@
+.btn {
+  padding: rem(15) rem(30);
+  font-size: rem(14);
+  transition: 0.7s;
+  font-family: "Manrope-Bold";
+
+  &__primary {
+    background: $primary-color;
+    color: $white-color;
+    &:hover {
+      background: $light-orange-color;
+    }
+  }
+
+  &__secondary {
+    border: rem(1) solid $secondary-color;
+    background: $white-color;
+    &:hover {
+      background: $secondary-color;
+      color: $white-color;
+    }
+  }
+}

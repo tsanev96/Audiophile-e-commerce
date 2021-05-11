@@ -36,6 +36,11 @@
   justify-content: center;
 }
 
+@mixin flexCenterVertical {
+  display: flex;
+  align-items: center;
+}
+
 @mixin flexSpaceBetween {
   display: flex;
   justify-content: space-between;
