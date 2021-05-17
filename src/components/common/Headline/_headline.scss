@@ -24,4 +24,12 @@
   &.h6 {
     font-size: rem(18);
   }
+
+  &__dark {
+    color: $black-color;
+  }
+
+  &__light {
+    color: $white-color;
+  }
 }

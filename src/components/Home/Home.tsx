@@ -1,21 +1,21 @@
 import React from "react";
 import { StageTeaser } from "../common/StageTeaser/StageTeaser";
-import img from "../../assets/category-earphones/mobile/image-yx1-earphones.jpg";
+import { stageTeaserData } from "./homeData";
 
 export const Home = () => {
   return (
     <StageTeaser
-      smallHeadline="NEW PRODUCT"
-      headline="XX99 Mark II
-  Headphone"
-      description="Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast."
+      smallHeadline={stageTeaserData.smallHeadline}
+      headline={stageTeaserData.headline}
+      description={stageTeaserData.description}
       button={{ text: "See Product" }}
       image={{
-        mobile: img,
-        tablet: img,
-        desktop: img,
-        alt: "",
+        mobile: stageTeaserData.image.mobile,
+        tablet: stageTeaserData.image.tablet,
+        desktop: stageTeaserData.image.desktop,
+        alt: stageTeaserData.image.alt,
       }}
+      theme="light"
     />
   );
 };
