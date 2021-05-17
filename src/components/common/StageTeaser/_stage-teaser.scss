@@ -3,9 +3,38 @@
   text-align: center;
   padding: rem(180) 0 rem(110);
 
+  @include desktop {
+    padding: rem(80) 0 rem(160);
+    background: $secondary-color;
+    text-align: left;
+
+    &__background {
+      position: static;
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    .info {
+      margin: 0 auto;
+      max-width: rem(380);
+
+      @include desktop {
+        max-width: none;
+        padding-right: rem(60);
+      }
+    }
+  }
+
   &__small-headline {
-    // margin: rem(180) 0 rem(16);
     margin-bottom: rem(16);
+    letter-spacing: rem(14);
+
+    @include tablet {
+      margin-bottom: rem(24);
+    }
   }
   &__headline {
     margin-bottom: rem(24);

@@ -3,7 +3,10 @@
   letter-spacing: rem(2);
 
   &.h1 {
-    font-size: rem(56);
+    font-size: rem(36);
+    @include tablet {
+      font-size: rem(56);
+    }
     line-height: rem(58);
   }
   &.h2 {

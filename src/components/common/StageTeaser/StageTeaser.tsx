@@ -29,31 +29,34 @@ export const StageTeaser: FC<StageTeaserProps> = ({
 
   return (
     <div className={rootWrapper}>
-      <Wrapper>
-        <Copy
-          className={`${rootWrapper}__small-headline`}
-          text={smallHeadline}
-          opacity="small"
-          theme={theme}
-        />
-        <Headline
-          className={`${rootWrapper}__headline`}
-          text={headline}
-          level="h3"
-          theme={theme}
-        />
-        <Copy
-          className={`${rootWrapper}__description`}
-          text={description}
-          opacity="big"
-          theme={theme}
-        />
-        <Button
-          className={`${rootWrapper}__button`}
-          text={button.text}
-          onClick={() => {}}
-        />
+      <Wrapper className={`${rootWrapper}__content`}>
+        <div className="info">
+          <Copy
+            className={`${rootWrapper}__small-headline`}
+            text={smallHeadline}
+            opacity="small"
+            theme={theme}
+          />
+          <Headline
+            className={`${rootWrapper}__headline`}
+            text={headline}
+            level="h1"
+            theme={theme}
+          />
+          <Copy
+            className={`${rootWrapper}__description`}
+            text={description}
+            opacity="big"
+            theme={theme}
+          />
+          <Button
+            className={`${rootWrapper}__button`}
+            text={button.text}
+            onClick={() => {}}
+          />
+        </div>
         <ImageBackground
+          className={`${rootWrapper}__background`}
           mobile={image.mobile}
           tablet={image.tablet}
           desktop={image.desktop}
