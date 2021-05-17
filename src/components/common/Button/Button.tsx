@@ -2,12 +2,18 @@ import React, { FC } from "react";
 
 interface ButtonProps {
   text: string;
-  type: "primary" | "secondary";
+  type?: "primary" | "secondary";
   onClick: () => void;
+  className: string;
 }
-export const Button: FC<ButtonProps> = ({ text, type, onClick }) => {
+export const Button: FC<ButtonProps> = ({
+  text,
+  type = "primary",
+  onClick,
+  className = "",
+}) => {
   return (
-    <button onClick={onClick} className={`btn btn__${type}`}>
+    <button onClick={onClick} className={`btn btn__${type} ${className}`}>
       {text}
     </button>
   );

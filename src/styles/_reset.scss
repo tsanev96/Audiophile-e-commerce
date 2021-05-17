@@ -17,3 +17,8 @@ li {
 a {
   color: $white-color;
 }
+
+img {
+  width: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,19 @@
+.stage-teaser {
+  position: relative;
+  text-align: center;
+  padding: rem(180) 0 rem(110);
+
+  &__small-headline {
+    // margin: rem(180) 0 rem(16);
+    margin-bottom: rem(16);
+  }
+  &__headline {
+    margin-bottom: rem(24);
+  }
+  &__description {
+    margin-bottom: rem(28);
+  }
+  &__button {
+    // margin-bottom: rem(112);
+  }
+}
