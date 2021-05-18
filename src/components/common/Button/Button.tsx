@@ -2,9 +2,9 @@ import React, { FC } from "react";
 
 interface ButtonProps {
   text: string;
-  type?: "primary" | "secondary";
-  onClick: () => void;
-  className: string;
+  type?: "primary" | "secondary" | "tertiary";
+  onClick?: () => void;
+  className?: string;
 }
 export const Button: FC<ButtonProps> = ({
   text,

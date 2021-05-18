@@ -1,7 +1,8 @@
 .boxes {
+  margin-bottom: rem(80);
+
   @include tablet {
     display: flex;
     justify-content: space-between;
-    margin-bottom: rem(80);
   }
 }

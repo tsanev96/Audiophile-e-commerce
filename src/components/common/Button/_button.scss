@@ -20,4 +20,14 @@
       color: $white-color;
     }
   }
+
+  &__tertiary {
+    // border: rem(1) solid $secondary-color;
+    background: $secondary-color;
+    color: $white-color;
+    &:hover {
+      background: $white-color;
+      color: $secondary-color;
+    }
+  }
 }
