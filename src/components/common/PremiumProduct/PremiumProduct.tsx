@@ -25,26 +25,30 @@ export const PremiumProduct: FC<PremiumProductProps> = ({
   return (
     <div className={rootWrapper}>
       <div className={`${rootWrapper}__circles`} />
-      <Image
-        className={`${rootWrapper}__image`}
-        mobile={img}
-        tablet={img}
-        desktop={img}
-        alt=""
-      />
-      <Headline
-        className={`${rootWrapper}__headline`}
-        theme={theme}
-        text={headline}
-        level="h1"
-      />
-      <Copy
-        className={`${rootWrapper}__description`}
-        theme={theme}
-        text={description}
-        opacity="small"
-      />
-      <Button text={button.text} type="tertiary" />
+      <div className={`${rootWrapper}__content`}>
+        <Image
+          className={`${rootWrapper}__image`}
+          mobile={img}
+          tablet={img}
+          desktop={img}
+          alt=""
+        />
+        <div className={`${rootWrapper}__info`}>
+          <Headline
+            className={`${rootWrapper}__headline`}
+            theme={theme}
+            text={headline}
+            level="h1"
+          />
+          <Copy
+            className={`${rootWrapper}__description`}
+            theme={theme}
+            text={description}
+            opacity="small"
+          />
+          <Button text={button.text} type="tertiary" />
+        </div>
+      </div>
     </div>
   );
 };

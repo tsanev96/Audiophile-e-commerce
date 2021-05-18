@@ -2,11 +2,27 @@
   position: relative;
   margin-bottom: rem(25);
   padding: 0 rem(25) rem(55);
-  @include flexCenter;
-  flex-direction: column;
   background: $primary-color;
   text-align: center;
   border-radius: rem(5);
+
+  @include desktop {
+    padding-bottom: 0;
+  }
+  &__content {
+    @include flexCenter;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-top: rem(120);
+    }
+  }
+  @include tablet {
+    margin-bottom: rem(30);
+  }
 
   &__circles {
     &::before,
@@ -21,6 +37,10 @@
       height: 60%;
       opacity: 0.25;
       margin: 0 auto;
+
+      @include desktop {
+        width: 40%;
+      }
     }
 
     &::after {
@@ -29,6 +49,17 @@
       height: 50%;
       left: 50%;
       transform: translate(-50%, 0);
+
+      @include desktop {
+        left: rem(50);
+        width: 40%;
+      }
+    }
+  }
+
+  &__info {
+    @include desktop {
+      align-self: flex-start;
     }
   }
 
@@ -36,10 +67,38 @@
     margin: rem(55) 0 rem(32);
     width: rem(170);
     z-index: 1;
+
+    @include tablet {
+      width: rem(190);
+      margin-bottom: rem(65);
+    }
+
+    @include desktop {
+      margin: 0;
+      width: rem(400);
+      height: rem(460);
+
+      img {
+        height: 100%;
+      }
+    }
   }
 
   &__headline,
   &__description {
-    margin-bottom: rem(24);
+    margin: 0 auto rem(24);
+  }
+
+  &__headline {
+    letter-spacing: rem(5);
+    @include tablet {
+      width: rem(260);
+    }
+  }
+  &__description {
+    @include tablet {
+      margin-bottom: rem(40);
+      width: rem(350);
+    }
   }
 }
