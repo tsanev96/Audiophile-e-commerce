@@ -1,0 +1,7 @@
+.boxes {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(80);
+  }
+}

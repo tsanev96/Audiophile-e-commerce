@@ -1,10 +1,13 @@
 import React, { FC } from "react";
 import { RiArrowRightSLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
+
 interface ButtonLinkProps {
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   theme?: "dark" | "light";
+  linkTo?: string;
 }
 
 export const ButtonLink: FC<ButtonLinkProps> = ({
@@ -12,14 +15,27 @@ export const ButtonLink: FC<ButtonLinkProps> = ({
   onClick,
   className = "",
   theme = "light",
+  linkTo,
 }) => {
   return (
-    <button
-      className={`btn-link btn-link__${theme} ${className}`}
-      onClick={onClick}
-    >
-      {text}
-      <RiArrowRightSLine />
-    </button>
+    <>
+      {linkTo ? (
+        <Link
+          className={`btn-link btn-link__${theme} ${className}`}
+          to={linkTo}
+        >
+          {text}
+          <RiArrowRightSLine />
+        </Link>
+      ) : (
+        <button
+          className={`btn-link btn-link__${theme} ${className}`}
+          onClick={onClick}
+        >
+          {text}
+          <RiArrowRightSLine />
+        </button>
+      )}
+    </>
   );
 };

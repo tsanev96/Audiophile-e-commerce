@@ -14,3 +14,9 @@ export const stageTeaserData = {
     alt: "",
   },
 };
+
+export const boxesData = [
+  { headline: "HEADPHONES", linkTo: "/headphones" },
+  { headline: "SPEAKERS", linkTo: "/speakers" },
+  { headline: "EARPHONES", linkTo: "/earphones" },
+];

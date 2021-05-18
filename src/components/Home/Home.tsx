@@ -2,9 +2,8 @@ import React from "react";
 import { ProductBox } from "../common/ProductBox/ProductBox";
 import { StageTeaser } from "../common/StageTeaser/StageTeaser";
 import { Wrapper } from "../common/Wrapper/Wrapper";
-import { stageTeaserData } from "./homeData";
-import data from "../../data/data.json";
-console.log(data[0].gallery.first.mobile);
+import { boxesData, stageTeaserData } from "./homeData";
+
 export const Home = () => {
   return (
     <div className="home-page">
@@ -21,16 +20,16 @@ export const Home = () => {
         }}
         theme="light"
       />
-      <Wrapper>
-        <div className="boxes">
+      <Wrapper className="boxes">
+        {boxesData.map((box) => (
           <ProductBox
-            buttonText="click me"
-            onClick={() => {}}
-            headline="headphones"
+            key={box.linkTo}
+            buttonText="SHOP"
+            headline={box.headline}
             theme="dark"
-            img={data[0].gallery.first.mobile}
+            linkTo={box.linkTo}
           />
-        </div>
+        ))}
       </Wrapper>
     </div>
   );

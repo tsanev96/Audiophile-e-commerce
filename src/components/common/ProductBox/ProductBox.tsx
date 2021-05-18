@@ -5,16 +5,15 @@ import img from "../../../assets/product-zx7-speaker/mobile/image-product.jpg";
 interface ProductBoxProps {
   headline: string;
   buttonText: string;
-  onClick: () => void;
   theme?: "dark" | "light";
-  img: string;
+  linkTo: string;
 }
 
 export const ProductBox: FC<ProductBoxProps> = ({
   headline,
   buttonText,
-  onClick,
   theme = "light",
+  linkTo,
 }) => {
   const rootWrapper = "product-box";
   return (
@@ -29,8 +28,8 @@ export const ProductBox: FC<ProductBoxProps> = ({
       <ButtonLink
         className={`${rootWrapper}__button`}
         text={buttonText}
-        onClick={onClick}
         theme="light"
+        linkTo={linkTo}
       />
     </div>
   );
