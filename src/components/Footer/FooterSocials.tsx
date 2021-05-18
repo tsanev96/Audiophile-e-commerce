@@ -5,7 +5,9 @@ export const FooterSocials = () => {
   return (
     <div className="footer__socials">
       {socialsLinks.map((link) => (
-        <a href={link.to}>{link.icon}</a>
+        <a key={link.to} href={link.to}>
+          {link.icon}
+        </a>
       ))}
     </div>
   );

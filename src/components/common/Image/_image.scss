@@ -1,0 +1,27 @@
+.image {
+  &__mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+}
