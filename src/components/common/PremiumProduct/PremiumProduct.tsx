@@ -46,7 +46,7 @@ export const PremiumProduct: FC<PremiumProductProps> = ({
             text={description}
             opacity="small"
           />
-          <Button text={button.text} type="tertiary" />
+          <Button text={button.text} type="secondary" />
         </div>
       </div>
     </div>

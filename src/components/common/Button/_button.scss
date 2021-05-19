@@ -3,6 +3,7 @@
   font-size: rem(14);
   transition: 0.7s;
   font-family: "Manrope-Bold";
+  border-radius: rem(5);
 
   &__primary {
     background: $primary-color;
@@ -14,20 +15,21 @@
 
   &__secondary {
     border: rem(1) solid $secondary-color;
-    background: $white-color;
+    background: $secondary-color;
+    color: $white-color;
     &:hover {
-      background: $secondary-color;
-      color: $white-color;
+      background: $white-color;
+      color: $black-color;
     }
   }
 
   &__tertiary {
     // border: rem(1) solid $secondary-color;
-    background: $secondary-color;
-    color: $white-color;
+    background: $light-gray-color;
+    color: $black-color;
     &:hover {
-      background: $white-color;
-      color: $secondary-color;
+      background: $secondary-color;
+      color: $white-color;
     }
   }
 }

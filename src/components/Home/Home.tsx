@@ -2,6 +2,7 @@ import React from "react";
 import { Boxes } from "../common/Boxes/Boxes";
 import { PremiumProduct } from "../common/PremiumProduct/PremiumProduct";
 import { ProductBox } from "../common/ProductBox/ProductBox";
+import { ProductImage } from "../common/ProductImage/ProductImage";
 import { StageTeaser } from "../common/StageTeaser/StageTeaser";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { boxesData, stageTeaserData } from "./homeData";
@@ -38,6 +39,11 @@ export const Home = () => {
           headline="ZX9 SPEAKER"
           description="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
           button={{ text: "SEE PRODUCT" }}
+        />
+        <ProductImage
+          headline="ZX7 SPEAKER"
+          button={{ onClick: () => {} }}
+          image={stageTeaserData.image}
         />
       </Wrapper>
     </div>
