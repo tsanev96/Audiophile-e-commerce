@@ -10,27 +10,32 @@ interface ProductImageProps {
     text?: string;
     onClick: () => void;
   };
-  image: ImageDetails;
+  image?: ImageDetails;
+  theme?: "dark" | "light";
 }
 export const ProductImage: FC<ProductImageProps> = ({
   headline,
   button,
   image,
+  theme = "light",
 }) => {
   const rootWrapper = "product-image";
 
   return (
-    <div className={rootWrapper}>
-      <ImageBackground
-        mobile={image.mobile}
-        tablet={image.tablet}
-        desktop={image.desktop}
-        alt={image.alt}
-      />
+    <div className={`${rootWrapper} ${!image && `${rootWrapper}__image-bg`}`}>
+      {image && (
+        <ImageBackground
+          mobile={image.mobile}
+          tablet={image.tablet}
+          desktop={image.desktop}
+          alt={image.alt}
+        />
+      )}
       <Headline
         className={`${rootWrapper}__headline`}
         text={headline}
         level="h4"
+        theme={theme}
       />
       <Button
         className={`${rootWrapper}__button`}

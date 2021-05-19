@@ -3,6 +3,10 @@
   margin-bottom: rem(25);
   padding: rem(0) rem(25);
 
+  &__image-bg {
+    background: $light-gray-color;
+  }
+
   @include tablet {
     padding: 0 rem(60);
   }
