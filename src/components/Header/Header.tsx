@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "../common/Button/Button";
-import { ButtonLink } from "../common/ButtonLink/ButtonLink";
 import { HeaderDesktop } from "./HeaderDesktop";
 import { HeaderMobile } from "./HeaderMobile";
 

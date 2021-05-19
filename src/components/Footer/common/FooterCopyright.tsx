@@ -5,7 +5,7 @@ export const FooterCopyright = () => {
   return (
     <Copy
       text="Copyright 2021. All Rights Reserved"
-      isOpacity
+      opacity="small"
       className="footer__copyright"
     />
   );

@@ -1,0 +1,27 @@
+.product-box {
+  margin-bottom: rem(25);
+  @include flexCenterVertical;
+  flex-direction: column;
+  background-color: $light-gray-color;
+
+  @include tablet {
+    margin: 0;
+    width: rem(220);
+  }
+  @include desktop {
+    width: rem(350);
+  }
+  &__img {
+    width: rem(150);
+    height: rem(150);
+  }
+
+  &__headline {
+    margin-bottom: rem(16);
+  }
+
+  &__button {
+    margin-bottom: rem(22);
+    color: $dark-gray-color;
+  }
+}

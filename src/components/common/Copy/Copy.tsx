@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 interface CopyProps {
   text: string;
-  isOpacity?: boolean;
+  opacity?: "big" | "small";
   alignCenter?: boolean;
   theme?: "dark" | "light";
   size?: "sm" | "lg";
@@ -11,7 +11,7 @@ interface CopyProps {
 
 export const Copy: FC<CopyProps> = ({
   text,
-  isOpacity,
+  opacity,
   alignCenter = "",
   theme = "light",
   className = "",
@@ -20,7 +20,7 @@ export const Copy: FC<CopyProps> = ({
   const rootWrapper = "copy";
   return (
     <p
-      className={`${rootWrapper} ${isOpacity && "opacity"} ${
+      className={`${rootWrapper} ${opacity && `opacity-${opacity}`} ${
         alignCenter && "centered"
       } ${rootWrapper}__${theme}  ${rootWrapper}__size-${size} ${className}`}
     >

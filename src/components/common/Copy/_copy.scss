@@ -1,4 +1,6 @@
 .copy {
+  line-height: rem(25);
+
   &__dark {
     color: $black-color;
   }
@@ -21,5 +23,13 @@
 
   &.opacity {
     opacity: 0.25;
+  }
+
+  &.opacity-small {
+    opacity: 0.75;
+  }
+
+  &.opacity-big {
+    opacity: 0.5;
   }
 }
