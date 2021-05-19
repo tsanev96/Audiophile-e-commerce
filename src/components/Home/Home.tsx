@@ -1,8 +1,7 @@
 import React from "react";
-import { Boxes } from "../common/Boxes/Boxes";
+import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
 import { ImageText } from "../common/ImageText/ImageText";
 import { PremiumProduct } from "../common/PremiumProduct/PremiumProduct";
-import { ProductBox } from "../common/ProductBox/ProductBox";
 import { ProductColumn } from "../common/ProductColumn/ProductColumn";
 import { ProductImage } from "../common/ProductImage/ProductImage";
 import { StageTeaser } from "../common/StageTeaser/StageTeaser";
@@ -26,17 +25,7 @@ export const Home = () => {
         theme="light"
       />
       <Wrapper>
-        <Boxes>
-          {boxesData.map((box) => (
-            <ProductBox
-              key={box.linkTo}
-              buttonText="SHOP"
-              headline={box.headline}
-              theme="dark"
-              linkTo={box.linkTo}
-            />
-          ))}
-        </Boxes>
+        <CategoriesBoxes />
         <PremiumProduct
           headline="ZX9 SPEAKER"
           description="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
