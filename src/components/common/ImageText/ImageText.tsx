@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { ImageDetails } from "../../../types/imageDetails";
 import { Copy } from "../Copy/Copy";
-import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
 
 interface ImageTextProps {

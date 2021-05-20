@@ -91,6 +91,7 @@
     transition: 0.5s;
     background: $secondary-color;
     text-align: center;
+    z-index: 20;
 
     &.active {
       transform: translate(0);
