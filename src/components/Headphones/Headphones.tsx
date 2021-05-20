@@ -4,8 +4,6 @@ import { Wrapper } from "../common/Wrapper/Wrapper";
 import { stageTeaserData } from "../Home/homeData";
 import data from "../../data/data.json";
 import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
-import { ImageText } from "../common/ImageText/ImageText";
-import { ProductColumn } from "../common/ProductColumn/ProductColumn";
 import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 
 interface Product {
@@ -39,6 +37,7 @@ export const Headphones = () => {
       <div className="headphones-products">
         {products?.map((product) => (
           <ProductItem
+            key={product.id}
             isProductNew={product.new}
             headline={product.name}
             description={product.description}

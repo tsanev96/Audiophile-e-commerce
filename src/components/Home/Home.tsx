@@ -1,6 +1,5 @@
 import React from "react";
 import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
-import { ImageText } from "../common/ImageText/ImageText";
 import { PremiumProduct } from "../common/PremiumProduct/PremiumProduct";
 import { ProductColumn } from "../common/ProductColumn/ProductColumn";
 import { ProductImage } from "../common/ProductImage/ProductImage";

@@ -3,7 +3,6 @@ import { ImageDetails } from "../../../types/imageDetails";
 import { Button } from "../Button/Button";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
-import { ProductImage } from "../ProductImage/ProductImage";
 
 interface ProductColumnProps {
   image: ImageDetails;
