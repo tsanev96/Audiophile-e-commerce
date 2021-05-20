@@ -8,6 +8,7 @@
 
   @include desktop {
     margin-bottom: rem(120);
+    text-align: left;
     @include flexCenterVertical;
 
     & > * {
@@ -54,9 +55,19 @@
       @include tablet {
         padding: 0 rem(50);
       }
+
+      @include tablet {
+        margin-bottom: rem(40);
+      }
     }
 
-    .button {
+    @include desktop {
+      max-width: rem(440);
+      margin: 0 auto;
+      .description,
+      .headline {
+        padding: 0;
+      }
     }
   }
 }

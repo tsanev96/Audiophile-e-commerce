@@ -3,6 +3,10 @@ import { ProductItem } from "../common/ProductItem/ProductItem";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { stageTeaserData } from "../Home/homeData";
 import data from "../../data/data.json";
+import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
+import { ImageText } from "../common/ImageText/ImageText";
+import { ProductColumn } from "../common/ProductColumn/ProductColumn";
+import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 
 interface Product {
   id: number;
@@ -48,6 +52,8 @@ export const Headphones = () => {
           />
         ))}
       </div>
+      <CategoriesBoxes />
+      <TeaserBottom />
     </Wrapper>
   );
 };
