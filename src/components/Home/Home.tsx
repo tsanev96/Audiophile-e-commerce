@@ -6,7 +6,7 @@ import { ProductColumn } from "../common/ProductColumn/ProductColumn";
 import { ProductImage } from "../common/ProductImage/ProductImage";
 import { StageTeaser } from "../common/StageTeaser/StageTeaser";
 import { Wrapper } from "../common/Wrapper/Wrapper";
-import { boxesData, stageTeaserData } from "./homeData";
+import { stageTeaserData } from "./homeData";
 
 export const Home = () => {
   return (

@@ -7,7 +7,7 @@ import { ImageBackground } from "../ImageBackground/ImageBackground";
 import { Wrapper } from "../Wrapper/Wrapper";
 
 interface StageTeaserProps {
-  smallHeadline: string;
+  smallHeadline?: string;
   headline: string;
   description: string;
   button: {
@@ -31,12 +31,14 @@ export const StageTeaser: FC<StageTeaserProps> = ({
     <div className={rootWrapper}>
       <Wrapper className={`${rootWrapper}__content`}>
         <div className="info">
-          <Copy
-            className={`${rootWrapper}__small-headline`}
-            text={smallHeadline}
-            opacity="small"
-            theme={theme}
-          />
+          {smallHeadline && (
+            <Copy
+              className={`${rootWrapper}__small-headline`}
+              text={smallHeadline}
+              opacity="small"
+              theme={theme}
+            />
+          )}
           <Headline
             className={`${rootWrapper}__headline`}
             text={headline}

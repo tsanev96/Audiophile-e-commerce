@@ -1,7 +1,7 @@
 import React from "react";
 
 interface WrapperProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | undefined;
   className?: string;
 }
 
