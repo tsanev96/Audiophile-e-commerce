@@ -5,24 +5,14 @@ import { stageTeaserData } from "../Home/homeData";
 import data from "../../data/data.json";
 import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
 import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
-
-interface Product {
-  id: number;
-  slug: string;
-  name: string;
-  image: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-  description: string;
-  includes: { quantity: number; item: string }[];
-  new: boolean;
-  price: number;
-}
+import { SeeProduct } from "../common/SeeProduct/SeeProduct";
+import { Product } from "../../types/product";
 
 export const Headphones = () => {
-  const [products, setProducts] = useState<Product[] | null>(null);
+  const [currentProductID, setCurrentProductID] = useState<number | null>(null);
+
+  const [products, setProducts] = useState<Product[]>([]);
+  const [currentProduct, setCurrentProduct] = useState<Product>(Object);
 
   useEffect(() => {
     // TODO
@@ -30,27 +20,38 @@ export const Headphones = () => {
     setProducts(fetchedData);
   }, []);
 
-  console.log(products);
+  const handleSeeProductClick = (productID: number) => {
+    setCurrentProductID(productID);
+
+    const productIndex = data.findIndex((prod) => prod.id === productID);
+    setCurrentProduct(products[productIndex]);
+  };
 
   return (
     <Wrapper className="headphones-page">
       <div className="headphones-products">
-        {products?.map((product) => (
-          <ProductItem
-            key={product.id}
-            isProductNew={product.new}
-            headline={product.name}
-            description={product.description}
-            button={{ text: "See Product", onClick: () => {} }}
-            image={{
-              mobile: stageTeaserData.image.mobile,
-              tablet: stageTeaserData.image.tablet,
-              desktop: stageTeaserData.image.desktop,
-              alt: stageTeaserData.image.alt,
-            }}
-          />
-        ))}
+        {currentProductID !== null ? (
+          <SeeProduct product={currentProduct} />
+        ) : (
+          products?.map((product) => (
+            <ProductItem
+              id={product.id}
+              key={product.id}
+              isProductNew={product.new}
+              headline={product.name}
+              description={product.description}
+              button={{ text: "See Product", onClick: handleSeeProductClick }}
+              image={{
+                mobile: stageTeaserData.image.mobile,
+                tablet: stageTeaserData.image.tablet,
+                desktop: stageTeaserData.image.desktop,
+                alt: stageTeaserData.image.alt,
+              }}
+            />
+          ))
+        )}
       </div>
+
       <CategoriesBoxes />
       <TeaserBottom />
     </Wrapper>
