@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NavigationContext } from "../../context/navigationContext";
+import { NavigationContextDetails } from "../../types/navigationContext";
 import { HeaderDesktop } from "./HeaderDesktop";
 import { HeaderMobile } from "./HeaderMobile";
 
@@ -7,10 +9,15 @@ export const Header = () => {
     console.log("basket clicked");
   };
 
+  const { currentPage } = useContext(
+    NavigationContext
+  ) as NavigationContextDetails;
+
   return (
     <div className="header">
       <HeaderMobile onShowBasket={showBasket} />
       <HeaderDesktop onShowBasket={showBasket} />
+      {currentPage && <div className="header__page">{currentPage}</div>}
     </div>
   );
 };
