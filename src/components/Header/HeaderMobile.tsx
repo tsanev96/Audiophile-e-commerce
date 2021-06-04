@@ -44,7 +44,11 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({ onShowBasket }) => {
           isHamburgerMenuClicked ? "active" : ""
         }`}
       >
-        <Navigation data={navLinks} className={`${rootWrapper}__nav`} />
+        <Navigation
+          data={navLinks}
+          className={`${rootWrapper}__nav`}
+          onLinkClick={() => setIsHamburgerMenuClicked(false)}
+        />
       </div>
     </div>
   );
