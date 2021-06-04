@@ -6,10 +6,15 @@ import { useLocation } from "react-router-dom";
 
 interface NavigationProps {
   data: { to: string; name: string }[];
+  onLinkClick?: () => void;
   className: string;
 }
 
-export const Navigation: FC<NavigationProps> = ({ data, className }) => {
+export const Navigation: FC<NavigationProps> = ({
+  data,
+  onLinkClick,
+  className,
+}) => {
   const location = useLocation();
 
   const { setCurrentPage } = useContext(
@@ -18,8 +23,10 @@ export const Navigation: FC<NavigationProps> = ({ data, className }) => {
 
   const handleLinkClick = () => {
     const pathname = location.pathname.substring(1);
-
     setCurrentPage(pathname);
+    if (onLinkClick) {
+      onLinkClick();
+    }
   };
 
   return (
