@@ -7,6 +7,7 @@ import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
 import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 import { SeeProduct } from "../common/SeeProduct/SeeProduct";
 import { Product } from "../../types/product";
+import { scrollToTop } from "../../util/scrollToTop";
 
 export const Headphones = () => {
   const [currentProductID, setCurrentProductID] = useState<number | null>(null);
@@ -25,6 +26,7 @@ export const Headphones = () => {
 
     const productIndex = data.findIndex((prod) => prod.id === productID);
     setCurrentProduct(products[productIndex]);
+    scrollToTop();
   };
 
   return (
