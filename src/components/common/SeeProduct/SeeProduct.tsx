@@ -13,6 +13,7 @@ interface SeeProductProps {
 enum ProductActions {
   Increment,
   Decrement,
+  AddToCart,
 }
 
 type Action = {
@@ -45,6 +46,10 @@ const reducer = (state: State, action: Action): State => {
         quantity: decrementedQuantity,
         price: payload * decrementedQuantity,
       };
+    case ProductActions.AddToCart:
+      // TODO
+      console.log("adding to cart");
+      return state;
   }
 };
 
@@ -84,7 +89,12 @@ export const SeeProduct: React.FC<SeeProductProps> = ({ product }) => {
             +
           </button>
         </div>
-        <Button text="ADD TO CART" />
+        <Button
+          text="ADD TO CART"
+          onClick={() =>
+            dispatch({ type: ProductActions.AddToCart, payload: state.price })
+          }
+        />
       </div>
     </div>
   );
