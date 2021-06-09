@@ -8,6 +8,7 @@ import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 
 interface SeeProductProps {
   product: Product;
+  onAddToCart: (product: Product) => void;
 }
 
 enum ProductActions {
@@ -47,15 +48,26 @@ const reducer = (state: State, action: Action): State => {
         price: payload * decrementedQuantity,
       };
     case ProductActions.AddToCart:
-      // TODO
-      console.log("adding to cart");
       return state;
   }
 };
 
-export const SeeProduct: React.FC<SeeProductProps> = ({ product }) => {
+export const SeeProduct: React.FC<SeeProductProps> = ({
+  product,
+  onAddToCart,
+}) => {
   const initialState = { quantity: 1, price: product.price };
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleAddToCart = () => {
+    dispatch({
+      type: ProductActions.AddToCart,
+      payload: product.price,
+    });
+
+    onAddToCart(product);
+    console.log("adding");
+  };
 
   return (
     <div className="see-product">
@@ -89,12 +101,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({ product }) => {
             +
           </button>
         </div>
-        <Button
-          text="ADD TO CART"
-          onClick={() =>
-            dispatch({ type: ProductActions.AddToCart, payload: state.price })
-          }
-        />
+        <Button text="ADD TO CART" onClick={handleAddToCart} />
       </div>
     </div>
   );

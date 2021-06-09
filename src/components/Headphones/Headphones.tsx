@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductItem } from "../common/ProductItem/ProductItem";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { stageTeaserData } from "../Home/homeData";
@@ -8,12 +8,16 @@ import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 import { SeeProduct } from "../common/SeeProduct/SeeProduct";
 import { Product } from "../../types/product";
 import { scrollToTop } from "../../util/scrollToTop";
+import { CartContext } from "../../context/cartContext";
+import { CartContextDetails } from "../../types/cartContext";
 
 export const Headphones = () => {
   const [currentProductID, setCurrentProductID] = useState<number | null>(null);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [currentProduct, setCurrentProduct] = useState<Product>(Object);
+
+  const { cart, setCart } = useContext(CartContext) as CartContextDetails;
 
   useEffect(() => {
     // TODO
@@ -29,11 +33,17 @@ export const Headphones = () => {
     scrollToTop();
   };
 
+  const handleAddToCart = (product: Product) => {
+    setCart([...cart, product]);
+
+    console.log("cart", cart);
+  };
+
   return (
     <Wrapper className="headphones-page">
       <div className="headphones-products">
         {currentProductID !== null ? (
-          <SeeProduct product={currentProduct} />
+          <SeeProduct product={currentProduct} onAddToCart={handleAddToCart} />
         ) : (
           products?.map((product) => (
             <ProductItem
