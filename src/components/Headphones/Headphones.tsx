@@ -13,6 +13,7 @@ import data from "../../data/data.json";
 
 export const Headphones = () => {
   const addProductToCard = useCart();
+
   const [currentProductID, setCurrentProductID] = useState<number | null>(null);
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -24,12 +25,17 @@ export const Headphones = () => {
   }, []);
 
   const handleSeeProductClick = (productID: number) => {
-    setCurrentProductID(productID);
-
+    // TODO
     const productIndex = data.findIndex((prod) => prod.id === productID);
-    setCurrentProduct(products[productIndex]);
-    scrollToTop();
+
+    if (productIndex >= 0) {
+      setCurrentProductID(productID);
+      setCurrentProduct(products[productIndex]);
+      scrollToTop();
+    }
   };
+
+  const handleGoBack = () => setCurrentProductID(null);
 
   const handleAddToCart = (product: CartProduct) => addProductToCard(product);
 
@@ -37,7 +43,15 @@ export const Headphones = () => {
     <Wrapper className="headphones-page">
       <div className="headphones-products">
         {currentProductID !== null ? (
-          <SeeProduct product={currentProduct} onAddToCart={handleAddToCart} />
+          <>
+            <button className="btn-go-back" onClick={handleGoBack}>
+              Go Back
+            </button>
+            <SeeProduct
+              product={currentProduct}
+              onAddToCart={handleAddToCart}
+            />
+          </>
         ) : (
           products?.map((product) => (
             <ProductItem

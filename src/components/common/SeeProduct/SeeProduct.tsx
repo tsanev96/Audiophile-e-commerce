@@ -6,59 +6,20 @@ import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 import { CartProduct } from "../../../types/cartProduct";
+import { productsReducer } from "../../../util/productsReducer";
+import { ProductActions } from "../../../actions/productActions";
 
 interface SeeProductProps {
   product: Product;
   onAddToCart: (product: CartProduct) => void;
 }
 
-enum ProductActions {
-  Increment,
-  Decrement,
-  AddToCart,
-}
-
-type Action = {
-  type: ProductActions;
-  payload: number;
-};
-
-type State = {
-  quantity: number;
-  price: number;
-};
-
-const reducer = (state: State, action: Action): State => {
-  const { type, payload } = action;
-  const { quantity } = state;
-
-  switch (type) {
-    case ProductActions.Increment:
-      const incrementedQuantity = quantity + 1;
-      return {
-        ...state,
-        quantity: incrementedQuantity,
-        price: payload * incrementedQuantity,
-      };
-
-    case ProductActions.Decrement:
-      const decrementedQuantity = quantity === 1 ? quantity : quantity - 1;
-      return {
-        ...state,
-        quantity: decrementedQuantity,
-        price: payload * decrementedQuantity,
-      };
-    case ProductActions.AddToCart:
-      return state;
-  }
-};
-
 export const SeeProduct: React.FC<SeeProductProps> = ({
   product,
   onAddToCart,
 }) => {
   const initialState = { quantity: 1, price: product.price };
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(productsReducer, initialState);
 
   const handleAddToCart = () => {
     dispatch({

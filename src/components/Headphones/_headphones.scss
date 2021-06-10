@@ -3,5 +3,18 @@
     & > *:nth-child(even) {
       flex-direction: row-reverse;
     }
+
+    .btn-go-back {
+      margin: rem(15) 0 rem(20);
+      font-size: rem(15);
+      line-height: rem(25);
+      color: $dark-gray-color;
+      background: none;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 }
