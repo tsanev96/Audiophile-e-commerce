@@ -1,9 +1,4 @@
-import { ProductActions } from "../actions/productActions";
-
-type Action = {
-  type: ProductActions;
-  payload: number;
-};
+import { Action, ProductActions } from "../actions/productActions";
 
 type State = {
   quantity: number;
