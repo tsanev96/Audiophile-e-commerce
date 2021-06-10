@@ -1,5 +1,6 @@
 import React from "react";
 import { Product } from "../../../../types/product";
+import { Copy } from "../../Copy/Copy";
 
 interface IncludesProps {
   product: Product;
@@ -7,11 +8,12 @@ interface IncludesProps {
 
 export const Includes: React.FC<IncludesProps> = ({ product }) => {
   return (
-    <ul>
+    <ul className="see-product__includes">
       {product.includes.map((box) => (
         <li key={box.item}>
-          <span className="quantity">{box.quantity}x</span>
-          {box.item}
+          <Copy text={box.item} opacity="big" size="lg" theme="dark">
+            <span className="quantity">{box.quantity}x</span>
+          </Copy>
         </li>
       ))}
     </ul>

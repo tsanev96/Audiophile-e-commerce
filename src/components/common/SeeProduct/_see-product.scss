@@ -17,6 +17,7 @@
   }
 
   &__buttons {
+    margin-bottom: rem(60);
     display: flex;
 
     .quantity-container {
@@ -41,5 +42,18 @@
         }
       }
     }
+  }
+
+  &__includes {
+    span {
+      margin-right: rem(20);
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+
+  &__features,
+  &__in-the-box {
+    margin-bottom: rem(60);
   }
 }

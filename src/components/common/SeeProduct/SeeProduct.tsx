@@ -20,6 +20,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   product,
   onAddToCart,
 }) => {
+  const rootClass = "see-product";
   const initialState = { quantity: 1, price: product.price };
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
@@ -33,7 +34,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   };
 
   return (
-    <div className="see-product">
+    <div className={rootClass}>
       <Image mobile={img} tablet={img} desktop={img} alt="" />
       <Headline text={product.name} level="h3" theme="dark" />
       <Copy text={product.description} theme="dark" />
@@ -44,10 +45,14 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
         dispatch={dispatch}
         onHandleAddToCart={handleAddToCart}
       />
-      <Headline level="h4" text="FEATURES" theme="dark" />
-      <Copy text={product.features} theme="dark" opacity="small" size="lg" />
-      <Headline level="h4" text="IN THE BOX" theme="dark" />
-      <Includes product={product} />
+      <div className={`${rootClass}__features`}>
+        <Headline level="h4" text="FEATURES" theme="dark" />
+        <Copy text={product.features} theme="dark" opacity="big" size="lg" />
+      </div>
+      <div className={`${rootClass}__in-the-box`}>
+        <Headline level="h4" text="IN THE BOX" theme="dark" />
+        <Includes product={product} />
+      </div>
     </div>
   );
 };

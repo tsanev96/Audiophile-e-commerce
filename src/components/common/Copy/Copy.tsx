@@ -16,6 +16,7 @@ export const Copy: FC<CopyProps> = ({
   theme = "light",
   className = "",
   size = "sm",
+  children,
 }) => {
   const rootWrapper = "copy";
   return (
@@ -24,6 +25,7 @@ export const Copy: FC<CopyProps> = ({
         alignCenter && "centered"
       } ${rootWrapper}__${theme}  ${rootWrapper}__size-${size} ${className}`}
     >
+      {children}
       {text}
     </p>
   );
