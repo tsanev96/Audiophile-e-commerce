@@ -7,8 +7,8 @@ import { CategoriesBoxes } from "../../CategoriesBoxes/CategoriesBoxes";
 import { stageTeaserData } from "../../Home/homeData";
 import { TeaserBottom } from "../../TeaserBottom/TeaserBottom";
 import { ProductItem } from "../ProductItem/ProductItem";
-import { SeeProduct } from "../SeeProduct/SeeProduct";
 import { Wrapper } from "../Wrapper/Wrapper";
+import { ProductInfo } from "./ProductInfo";
 
 interface ProductsPageGridProps {
   products: Product[];
@@ -22,7 +22,6 @@ export const ProductsPageGrid: FC<ProductsPageGridProps> = ({
   const addProductToCard = useCart();
 
   const [currentProductID, setCurrentProductID] = useState<number | null>(null);
-
   const [currentProduct, setCurrentProduct] = useState<Product>(Object);
 
   const handleSeeProductClick = (productID: number) => {
@@ -41,18 +40,14 @@ export const ProductsPageGrid: FC<ProductsPageGridProps> = ({
   const handleAddToCart = (product: CartProduct) => addProductToCard(product);
 
   return (
-    <Wrapper className={`${className} page`}>
-      <div className="page-products">
-        {currentProductID !== null ? (
-          <>
-            <button className="btn-go-back" onClick={handleGoBack}>
-              Go Back
-            </button>
-            <SeeProduct
-              product={currentProduct}
-              onAddToCart={handleAddToCart}
-            />
-          </>
+    <Wrapper className={`products-page-grid ${className} page`}>
+      <div className="products">
+        {currentProductID ? (
+          <ProductInfo
+            currentProduct={currentProduct}
+            onHandleAddToCart={handleAddToCart}
+            onHandleGoBack={handleGoBack}
+          />
         ) : (
           products?.map((product) => (
             <ProductItem
