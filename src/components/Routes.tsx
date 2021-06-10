@@ -6,6 +6,7 @@ import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import { Headphones } from "./Headphones/Headphones";
 import { Home } from "./Home/Home";
+import { Speakers } from "./Speakers/Speakers";
 
 export const Routes = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ export const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/home" component={Home} />
         <Route path="/headphones" component={Headphones} />
+        <Route path="/speakers" component={Speakers} />
       </Switch>
       <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>
         <Footer />
