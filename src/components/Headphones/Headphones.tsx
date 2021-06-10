@@ -1,26 +1,24 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductItem } from "../common/ProductItem/ProductItem";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { stageTeaserData } from "../Home/homeData";
-import data from "../../data/data.json";
 import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
 import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 import { SeeProduct } from "../common/SeeProduct/SeeProduct";
 import { Product } from "../../types/product";
 import { scrollToTop } from "../../util/scrollToTop";
-import { CartContext } from "../../context/cartContext";
-import { CartContextDetails } from "../../types/cartContext";
+import { useCart } from "../../hooks/cart";
+import { CartProduct } from "../../types/cartProduct";
+import data from "../../data/data.json";
 
 export const Headphones = () => {
+  const addProductToCard = useCart();
   const [currentProductID, setCurrentProductID] = useState<number | null>(null);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [currentProduct, setCurrentProduct] = useState<Product>(Object);
 
-  const { cart, setCart } = useContext(CartContext) as CartContextDetails;
-
   useEffect(() => {
-    // TODO
     const fetchedData = data.filter((item) => item.category === "headphones");
     setProducts(fetchedData);
   }, []);
@@ -33,11 +31,7 @@ export const Headphones = () => {
     scrollToTop();
   };
 
-  const handleAddToCart = (product: Product) => {
-    setCart([...cart, product]);
-
-    console.log("cart", cart);
-  };
+  const handleAddToCart = (product: CartProduct) => addProductToCard(product);
 
   return (
     <Wrapper className="headphones-page">

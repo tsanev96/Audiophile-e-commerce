@@ -5,10 +5,11 @@ import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
+import { CartProduct } from "../../../types/cartProduct";
 
 interface SeeProductProps {
   product: Product;
-  onAddToCart: (product: Product) => void;
+  onAddToCart: (product: CartProduct) => void;
 }
 
 enum ProductActions {
@@ -65,8 +66,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
       payload: product.price,
     });
 
-    onAddToCart(product);
-    console.log("adding");
+    onAddToCart({ ...product, quantity: state.quantity });
   };
 
   return (

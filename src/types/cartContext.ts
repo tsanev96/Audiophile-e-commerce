@@ -1,6 +1,6 @@
-import { Product } from "./product";
+import { CartProduct } from "./cartProduct";
 
 export type CartContextDetails = {
-  cart: [];
-  setCart: (product: Product[]) => void;
+  cart: CartProduct[];
+  setCart: (product: CartProduct[]) => void;
 };
