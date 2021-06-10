@@ -1,4 +1,3 @@
-import React from "react";
 import { CategoriesBoxes } from "../CategoriesBoxes/CategoriesBoxes";
 import { PremiumProduct } from "../common/PremiumProduct/PremiumProduct";
 import { ProductColumn } from "../common/ProductColumn/ProductColumn";

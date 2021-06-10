@@ -6,17 +6,19 @@ import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
 
 interface ProductItemProps {
+  id: number;
   isProductNew: boolean;
   headline: string;
   description: string;
   image: ImageDetails;
   button: {
     text?: string;
-    onClick: () => void;
+    onClick: (id: number) => void;
   };
 }
 
 export const ProductItem: FC<ProductItemProps> = ({
+  id,
   isProductNew,
   headline,
   description,
@@ -43,7 +45,7 @@ export const ProductItem: FC<ProductItemProps> = ({
         <Copy theme="dark" className="description" text={description} />
         <Button
           text={button.text ? button.text : "SEE PRODUCT"}
-          onClick={button.onClick}
+          onClick={() => button.onClick(id)}
         />
       </div>
     </div>
