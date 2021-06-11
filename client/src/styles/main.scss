@@ -1,0 +1,15 @@
+@import "./variables";
+@import "./fonts";
+@import "./mixins";
+@import "./components";
+@import "./reset";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Manrope-Medium", sans-serif;
+}

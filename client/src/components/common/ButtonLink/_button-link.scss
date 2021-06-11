@@ -1,0 +1,24 @@
+.btn-link {
+  @include flexCenterVertical;
+  font-family: "Manrope-Bold";
+  color: $light-gray-color;
+  background: transparent;
+  font-size: rem(16);
+  transition: 0.6s;
+  &:hover {
+    color: $primary-color;
+  }
+  svg {
+    margin-left: rem(5);
+    font-size: rem(24);
+    fill: $primary-color;
+  }
+
+  &__dark {
+    color: $secondary-color;
+  }
+
+  &__light {
+    color: $white-color;
+  }
+}
