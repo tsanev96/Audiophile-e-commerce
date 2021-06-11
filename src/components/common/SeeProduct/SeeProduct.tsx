@@ -10,6 +10,7 @@ import { productsReducer } from "../../../util/productsReducer";
 import { ProductActions } from "../../../actions/productActions";
 import { Includes } from "./components/Includes";
 import { ContainerButtons } from "./components/ContainerButtons";
+import { ProductImages } from "./components/ProductImages";
 
 interface SeeProductProps {
   product: Product;
@@ -52,6 +53,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
       <div className={`${rootClass}__in-the-box`}>
         <Headline level="h4" text="IN THE BOX" theme="dark" />
         <Includes product={product} />
+        <ProductImages />
       </div>
     </div>
   );

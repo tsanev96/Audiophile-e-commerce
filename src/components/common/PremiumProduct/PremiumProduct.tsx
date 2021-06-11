@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
-import img from "../../../assets/product-yx1-earphones/mobile/image-gallery-3.jpg";
+import img from "../../../assets/product-yx1-earphones/mobile/1.jpg";
 import { Button } from "../Button/Button";
 
 interface PremiumProductProps {
