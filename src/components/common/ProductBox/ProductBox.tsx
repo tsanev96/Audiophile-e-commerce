@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ButtonLink } from "../ButtonLink/ButtonLink";
 import { Headline } from "../Headline/Headline";
-import img from "../../../assets/product-zx7-speaker/mobile/image-product.jpg";
+import img from "../../../assets/product-zx7-speaker/mobile/1.jpg";
 import { Image } from "../Image/Image";
 
 interface ProductBoxProps {

@@ -3,3 +3,8 @@ export enum ProductActions {
   Decrement,
   AddToCart,
 }
+
+export type Action = {
+  type: ProductActions;
+  payload: number;
+};

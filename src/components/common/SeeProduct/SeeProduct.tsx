@@ -8,6 +8,9 @@ import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 import { CartProduct } from "../../../types/cartProduct";
 import { productsReducer } from "../../../util/productsReducer";
 import { ProductActions } from "../../../actions/productActions";
+import { Includes } from "./components/Includes";
+import { ContainerButtons } from "./components/ContainerButtons";
+import { ProductImages } from "./components/ProductImages";
 
 interface SeeProductProps {
   product: Product;
@@ -18,6 +21,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   product,
   onAddToCart,
 }) => {
+  const rootClass = "see-product";
   const initialState = { quantity: 1, price: product.price };
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
@@ -31,38 +35,25 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   };
 
   return (
-    <div className="see-product">
+    <div className={rootClass}>
       <Image mobile={img} tablet={img} desktop={img} alt="" />
       <Headline text={product.name} level="h3" theme="dark" />
       <Copy text={product.description} theme="dark" />
       <div className="price">$ {state.price}</div>
-      <div className="see-product__buttons">
-        <div className="quantity-container btn">
-          <button
-            className="drop"
-            onClick={() =>
-              dispatch({
-                type: ProductActions.Decrement,
-                payload: product.price,
-              })
-            }
-          >
-            -
-          </button>
-          <span>{state.quantity}</span>
-          <button
-            className="up"
-            onClick={() =>
-              dispatch({
-                type: ProductActions.Increment,
-                payload: product.price,
-              })
-            }
-          >
-            +
-          </button>
-        </div>
-        <Button text="ADD TO CART" onClick={handleAddToCart} />
+      <ContainerButtons
+        product={product}
+        state={state}
+        dispatch={dispatch}
+        onHandleAddToCart={handleAddToCart}
+      />
+      <div className={`${rootClass}__features`}>
+        <Headline level="h4" text="FEATURES" theme="dark" />
+        <Copy text={product.features} theme="dark" opacity="big" size="lg" />
+      </div>
+      <div className={`${rootClass}__in-the-box`}>
+        <Headline level="h4" text="IN THE BOX" theme="dark" />
+        <Includes product={product} />
+        <ProductImages />
       </div>
     </div>
   );
