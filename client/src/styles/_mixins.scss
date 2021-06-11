@@ -1,0 +1,52 @@
+@import "./variables";
+@import "./functions";
+
+@mixin mobile {
+  @media (min-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin sm-tablet {
+  @media (min-width: #{$sm-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexCenterHorizontal {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flexCenterVertical {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin resetSidePadding {
+  padding-left: 0;
+  padding-right: 0;
+}

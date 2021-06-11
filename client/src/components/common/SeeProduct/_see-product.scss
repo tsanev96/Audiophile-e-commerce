@@ -1,0 +1,59 @@
+.see-product {
+  margin-bottom: rem(70);
+
+  .image {
+    margin: 0 auto rem(40);
+    max-width: rem(330);
+  }
+
+  .headline,
+  .copy {
+    margin-bottom: rem(24);
+  }
+
+  .price {
+    margin-bottom: rem(30);
+    font-weight: bold;
+  }
+
+  &__buttons {
+    margin-bottom: rem(60);
+    display: flex;
+
+    .quantity-container {
+      @include flexCenter;
+      margin-right: rem(20);
+      background: $light-gray-color;
+      text-align: center;
+
+      & > * {
+        min-width: rem(15);
+      }
+
+      .quantity {
+        margin: 0 rem(5);
+      }
+      .drop,
+      .up {
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover {
+          background: $dark-gray-color;
+        }
+      }
+    }
+  }
+
+  &__includes {
+    span {
+      margin-right: rem(20);
+      color: $primary-color;
+      font-weight: bold;
+    }
+  }
+
+  &__features,
+  &__in-the-box {
+    margin-bottom: rem(60);
+  }
+}

@@ -1,0 +1,26 @@
+.product-image {
+  position: relative;
+  margin-bottom: rem(25);
+  padding: rem(0) rem(25);
+
+  &__image-bg {
+    background: $light-gray-color;
+  }
+
+  @include tablet {
+    padding: 0 rem(60);
+  }
+
+  @include desktop {
+    padding: 0 rem(95);
+  }
+
+  &__headline {
+    margin-bottom: rem(30);
+    padding-top: rem(120);
+  }
+
+  &__button {
+    margin-bottom: rem(100);
+  }
+}

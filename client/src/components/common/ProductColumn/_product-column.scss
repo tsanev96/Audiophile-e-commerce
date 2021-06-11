@@ -1,0 +1,40 @@
+.product-column {
+  margin-bottom: rem(80);
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: rem(10);
+  }
+
+  @include desktop {
+    margin-bottom: rem(120);
+    grid-gap: rem(30);
+  }
+
+  &__image {
+    margin-bottom: rem(25);
+    height: rem(200);
+
+    @include tablet {
+      margin: 0;
+      height: auto;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__content {
+    background: $light-gray-color;
+    padding: rem(40) rem(25);
+
+    .headline {
+      margin-bottom: rem(30);
+    }
+    @include tablet {
+      padding: rem(100) rem(40);
+    }
+  }
+}

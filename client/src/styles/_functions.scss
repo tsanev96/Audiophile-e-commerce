@@ -1,0 +1,6 @@
+$base-size: 16;
+//Function to convert px value into rem
+
+@function rem($target, $context: $base-size) {
+  @return #{$target / $context}rem;
+}
