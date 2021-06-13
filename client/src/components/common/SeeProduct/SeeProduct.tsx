@@ -1,6 +1,5 @@
 import React, { useReducer } from "react";
 import { Product } from "../../../types/product";
-import { Button } from "../Button/Button";
 import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";

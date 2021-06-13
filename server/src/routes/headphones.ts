@@ -5,6 +5,4 @@ const router = Router();
 
 router.get("/", getHeadphones);
 
-// router.get("/:id", (req, res, next) => {});
-
 export default router;

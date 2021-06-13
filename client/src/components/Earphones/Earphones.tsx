@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Product } from "../../types/product";
 import { ProductsPageGrid } from "../common/ProductsPageGrid/ProductsPageGrid";
 import { Categories } from "../../types/categories";
-import data from "../../data/data.json";
+import { useFetch } from "../../hooks/fetch";
+import { URLs } from "../../networking/url";
 
 export const Headphones = () => {
+  const res = useFetch<Product[]>(URLs.HEADPHONES);
+
   const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    const fetchedData = data.filter(
-      (product) => product.category === Categories.HEADPHONES
-    );
-    setProducts(fetchedData);
-  }, []);
+  if (res.response) {
+    setProducts(res.response.data);
+  }
 
   return (
     <ProductsPageGrid products={products} className={Categories.HEADPHONES} />

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const headphones_1 = require("../controllers/headphones");
+const earphones_1 = require("../controllers/earphones");
 const router = express_1.Router();
-router.get("/", headphones_1.getHeadphones);
+router.get("/", earphones_1.getEarphones);
 exports.default = router;
