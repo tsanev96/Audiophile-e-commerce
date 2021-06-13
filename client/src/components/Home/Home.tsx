@@ -7,7 +7,7 @@ import { Wrapper } from "../common/Wrapper/Wrapper";
 import { TeaserBottom } from "../TeaserBottom/TeaserBottom";
 import { stageTeaserData } from "./homeData";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <div className="home-page">
       <StageTeaser

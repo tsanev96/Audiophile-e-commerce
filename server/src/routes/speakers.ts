@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { getSpeakers } from "../controllers/speakers";
+import { getSpeakers, getSpeakerSet } from "../controllers/speakers";
 
 const router = Router();
 
 router.get("/", getSpeakers);
+
+router.get("/", getSpeakerSet);
 
 export default router;

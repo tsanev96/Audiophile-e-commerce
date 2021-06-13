@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { NavigationContext } from "../context/navigationContext";
 import { formatPathname } from "../util/formatPathname";
+import { Earphones } from "./Earphones/Earphones";
 import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import { Headphones } from "./Headphones/Headphones";
@@ -26,6 +27,7 @@ export const Routes = () => {
         <Route path="/home" component={Home} />
         <Route path="/headphones" component={Headphones} />
         <Route path="/speakers" component={Speakers} />
+        <Route path="/earphones" component={Earphones} />
       </Switch>
       <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>
         <Footer />

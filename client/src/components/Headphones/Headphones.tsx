@@ -6,7 +6,7 @@ import { useFetch } from "../../hooks/fetch";
 import { URLs } from "../../networking/url";
 import { useEffect } from "react";
 
-export const Headphones = () => {
+export const Headphones: React.FC = () => {
   const res = useFetch<Product[]>(URLs.HEADPHONES);
 
   const [products, setProducts] = useState<Product[]>([]);
