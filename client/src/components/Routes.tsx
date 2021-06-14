@@ -7,6 +7,7 @@ import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import { Headphones } from "./Headphones/Headphones";
 import { Home } from "./Home/Home";
+import { Product } from "./Product/Product";
 import { Speakers } from "./Speakers/Speakers";
 
 export const Routes = () => {
@@ -25,9 +26,12 @@ export const Routes = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/home" component={Home} />
-        <Route path="/headphones" component={Headphones} />
-        <Route path="/speakers" component={Speakers} />
-        <Route path="/earphones" component={Earphones} />
+        <Route path="/headphones/:id" component={Product} />
+        <Route path="/speakers/:id" component={Product} />
+        <Route path="/earphones/:id" component={Product} />
+        <Route path="/headphones" exact component={Headphones} />
+        <Route path="/speakers" exact component={Speakers} />
+        <Route path="/earphones" exact component={Earphones} />
       </Switch>
       <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>
         <Footer />

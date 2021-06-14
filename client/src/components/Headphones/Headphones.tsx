@@ -18,6 +18,10 @@ export const Headphones: React.FC = () => {
   }, [res.response]);
 
   return (
-    <ProductsPageGrid products={products} className={Categories.HEADPHONES} />
+    <ProductsPageGrid
+      products={products}
+      className={Categories.HEADPHONES}
+      category={Categories.HEADPHONES}
+    />
   );
 };
