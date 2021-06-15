@@ -1,5 +1,9 @@
 import React from "react";
 
-export const NotFound: React.FC = () => {
-  return <div>Page was not found</div>;
+interface NotFoundProps {
+  message?: string;
+}
+
+export const NotFound: React.FC<NotFoundProps> = ({ message }) => {
+  return <div>{message ? message : "Page was not found"}</div>;
 };
