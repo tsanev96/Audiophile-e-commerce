@@ -1,16 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CartContext } from "../../context/cartContext";
 import { navLinks } from "../../data/navLinks";
+import { CartPopUp } from "../CartPopUp/CartPopUp";
 import { Headline } from "../common/Headline/Headline";
 import { Navigation } from "../common/Navigation/Navigation";
 import { Wrapper } from "../common/Wrapper/Wrapper";
+import { HeaderProps } from "./Header";
 
-interface HeaderDesktopProps {
-  onShowBasket: () => void;
-}
-export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
-  onShowBasket,
-}) => {
+export const HeaderDesktop: React.FC<HeaderProps> = ({ onShowBasket }) => {
+  const { cart } = useContext(CartContext);
+
   const rootWrapper = "header";
 
   return (
@@ -25,6 +26,7 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
         <div className={`${rootWrapper}__icon`}>
           <AiOutlineShoppingCart onClick={onShowBasket} />
         </div>
+        <CartPopUp />
       </div>
     </Wrapper>
   );

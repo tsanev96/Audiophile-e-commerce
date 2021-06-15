@@ -3,12 +3,9 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { navLinks } from "../../data/navLinks";
 import { Headline } from "../common/Headline/Headline";
 import { Navigation } from "../common/Navigation/Navigation";
+import { HeaderProps } from "./Header";
 
-interface HeaderMobileProps {
-  onShowBasket: () => void;
-}
-
-export const HeaderMobile: React.FC<HeaderMobileProps> = ({ onShowBasket }) => {
+export const HeaderMobile: React.FC<HeaderProps> = ({ onShowBasket }) => {
   const [isHamburgerMenuClicked, setIsHamburgerMenuClicked] = useState(false);
 
   const onHamburgerMenuClick = () =>

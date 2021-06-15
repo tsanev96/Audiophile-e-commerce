@@ -6,11 +6,11 @@ import { Image } from "../Image/Image";
 import { productsReducer } from "../../../util/productsReducer";
 import { ProductActions } from "../../../actions/productActions";
 import { Includes } from "./components/Includes";
-import { ContainerButtons } from "./components/ContainerButtons";
 import { ProductImages } from "./components/ProductImages";
 import { useCart } from "../../../hooks/cart";
 import { Wrapper } from "../Wrapper/Wrapper";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
+import { ProductActionButtons } from "../ProductActionButtons/ProductActionButtons";
 
 interface SeeProductProps {
   product: Product;
@@ -47,13 +47,13 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
         <Headline text={product.name} level="h3" theme="dark" />
         <Copy text={product.description} theme="dark" />
         <div className="price">$ {state.price}</div>
-        <ContainerButtons
+        <ProductActionButtons
           product={product}
           state={state}
           dispatch={dispatch}
           onHandleAddToCart={handleAddToCart}
+          renderAddToCart
         />
-
         <div className={`${rootClass}__features`}>
           <Headline level="h4" text="FEATURES" theme="dark" />
           <Copy text={product.features} theme="dark" opacity="big" size="lg" />
