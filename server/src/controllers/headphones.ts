@@ -12,7 +12,7 @@ export const getHeadphoneSet: RequestHandler<{ id: string }> = (
   res,
   next
 ) => {
-  const id = +req.params.id;
+  const id = req.params.id;
   const set = headphones.find((product) => product.id === id);
 
   if (set) {

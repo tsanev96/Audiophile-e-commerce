@@ -12,7 +12,8 @@ export const getSpeakerSet: RequestHandler<{ id: string }> = (
   res,
   next
 ) => {
-  const id = +req.params.id;
+  const id = req.params.id;
+  console.log("id", id);
   const set = speakers.find((product) => product.id === id);
 
   if (set) {

@@ -1,20 +1,26 @@
-import { useState } from "react";
 import { Product } from "../../types/product";
 import { ProductsPageGrid } from "../common/ProductsPageGrid/ProductsPageGrid";
 import { Categories } from "../../types/categories";
 import { useFetch } from "../../hooks/fetch";
 import { URLs } from "../../networking/url";
+import { NotFound } from "../NotFound/NotFound";
 
 export const Earphones: React.FC = () => {
   const res = useFetch<Product[]>(URLs.HEADPHONES);
 
-  const [products, setProducts] = useState<Product[]>([]);
-
-  if (res.response) {
-    setProducts(res.response.data);
+  if (res.error) {
+    return <NotFound />;
   }
 
   return (
-    <ProductsPageGrid products={products} className={Categories.HEADPHONES} />
+    <>
+      {res.response?.data && (
+        <ProductsPageGrid
+          products={res.response.data}
+          className={Categories.EARPHONES}
+          category={Categories.EARPHONES}
+        />
+      )}
+    </>
   );
 };

@@ -5,6 +5,6 @@ const router = Router();
 
 router.get("/", getSpeakers);
 
-router.get("/", getSpeakerSet);
+router.get("/:id", getSpeakerSet);
 
 export default router;

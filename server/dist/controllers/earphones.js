@@ -8,7 +8,7 @@ const getEarphones = (req, res, next) => {
 };
 exports.getEarphones = getEarphones;
 const getEarphonesSet = (req, res, next) => {
-    const id = +req.params.id;
+    const id = req.params.id;
     const set = earphones.find((product) => product.id === id);
     if (set) {
         return res.status(200).send(set);
