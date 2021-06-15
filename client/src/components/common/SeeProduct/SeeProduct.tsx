@@ -3,17 +3,14 @@ import { Product } from "../../../types/product";
 import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
-import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
-import { CartProduct } from "../../../types/cartProduct";
 import { productsReducer } from "../../../util/productsReducer";
 import { ProductActions } from "../../../actions/productActions";
 import { Includes } from "./components/Includes";
 import { ContainerButtons } from "./components/ContainerButtons";
 import { ProductImages } from "./components/ProductImages";
 import { useCart } from "../../../hooks/cart";
-import { useContext } from "react";
-import { CartContext } from "../../../context/cartContext";
 import { Wrapper } from "../Wrapper/Wrapper";
+import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 
 interface SeeProductProps {
   product: Product;
@@ -25,12 +22,11 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   product,
   onHandleGoBack,
 }) => {
-  const rootClass = "see-product";
-
-  const cart = useContext(CartContext);
   const addProductToCart = useCart();
   const initialState = { quantity: 1, price: product.price };
   const [state, dispatch] = useReducer(productsReducer, initialState);
+
+  const rootClass = "see-product";
 
   const handleAddToCart = () => {
     dispatch({
