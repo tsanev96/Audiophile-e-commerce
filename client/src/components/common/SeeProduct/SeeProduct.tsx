@@ -3,7 +3,10 @@ import { Product } from "../../../types/product";
 import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
-import { productsReducer } from "../../../util/productsReducer";
+import {
+  ProductReducerState,
+  productsReducer,
+} from "../../../util/productsReducer";
 import { ProductActions } from "../../../actions/productActions";
 import { Includes } from "./components/Includes";
 import { ProductImages } from "./components/ProductImages";
@@ -23,20 +26,16 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   onHandleGoBack,
 }) => {
   const addProductToCart = useCart();
-  const initialState = { quantity: 1, price: product.price };
+
+  const initialState: ProductReducerState = {
+    quantity: 1,
+    price: product.price,
+  };
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   const rootClass = "see-product";
 
-  const handleAddToCart = () => {
-    dispatch({
-      type: ProductActions.AddToCart,
-      payload: product.price,
-    });
-
-    addProductToCart({ ...product, quantity: state.quantity });
-  };
-
+  console.log("state", state);
   return (
     <Wrapper className={rootClass}>
       <button className="btn-go-back" onClick={onHandleGoBack}>
@@ -51,7 +50,9 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
           product={product}
           state={state}
           dispatch={dispatch}
-          onHandleAddToCart={handleAddToCart}
+          onHandleAddToCart={() =>
+            addProductToCart({ ...product, quantity: 1 }, dispatch)
+          }
           renderAddToCart
         />
         <div className={`${rootClass}__features`}>

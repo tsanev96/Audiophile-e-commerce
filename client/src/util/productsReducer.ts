@@ -1,11 +1,14 @@
 import { Action, ProductActions } from "../actions/productActions";
 
-type State = {
+export type ProductReducerState = {
   quantity: number;
   price: number;
 };
 
-export const productsReducer = (state: State, action: Action): State => {
+export const productsReducer = (
+  state: ProductReducerState,
+  action: Action
+): ProductReducerState => {
   const { type, payload } = action;
   const { quantity } = state;
 
