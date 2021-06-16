@@ -31,9 +31,12 @@ export const CartPopUp: React.FC = () => {
               />
               <div className="info">
                 <Copy text={product.name} theme="dark" />
-                <Copy text={`$${product.price}`} theme="dark" />
+                <Copy text={`$${product.total}`} theme="dark" />
               </div>
-              <ProductActionButtons product={product} />
+              <ProductActionButtons
+                product={product}
+                quantity={product.quantity}
+              />
             </div>
           ))}
         </div>

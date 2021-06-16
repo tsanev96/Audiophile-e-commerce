@@ -4,9 +4,11 @@
 
   .quantity-container {
     @include flexCenter;
-    // margin-right: rem(20);
+    padding: rem(15) rem(20);
+    border-radius: rem(5);
     background: $light-gray-color;
     text-align: center;
+    color: $secondary-color;
 
     & > * {
       min-width: rem(15);
@@ -23,5 +25,9 @@
         background: $dark-gray-color;
       }
     }
+  }
+
+  .quantity-container-margin {
+    margin-right: rem(20);
   }
 }

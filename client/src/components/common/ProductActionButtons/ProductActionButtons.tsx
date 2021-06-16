@@ -11,25 +11,35 @@ import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart";
 interface ProductActionButtonsProps {
   product: Product;
   renderAddToCart?: boolean;
+  quantity?: number;
 }
 
 export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   product,
   renderAddToCart = false,
+  quantity,
 }) => {
   const rootClass = "product-action-buttons";
 
   const addProductToCart = useCart();
 
+  const currentQuantity = quantity ? quantity : 1;
   const initialState: ProductReducerState = {
-    quantity: 1,
-    price: product.price,
+    quantity: currentQuantity,
+    total: product.price * currentQuantity,
   };
+
+  console.log("current quantity", currentQuantity);
+
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   return (
     <div className={rootClass}>
-      <div className="quantity-container btn">
+      <div
+        className={`quantity-container ${
+          renderAddToCart && "quantity-container-margin"
+        }`}
+      >
         <button
           className="drop"
           onClick={() =>

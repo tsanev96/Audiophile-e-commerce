@@ -2,7 +2,7 @@ import { Action, ProductActions } from "../actions/productActions";
 
 export type ProductReducerState = {
   quantity: number;
-  price: number;
+  total: number;
 };
 
 export const productsReducer = (
@@ -18,7 +18,7 @@ export const productsReducer = (
       return {
         ...state,
         quantity: incrementedQuantity,
-        price: payload * incrementedQuantity,
+        total: payload * incrementedQuantity,
       };
 
     case ProductActions.Decrement:
@@ -26,7 +26,7 @@ export const productsReducer = (
       return {
         ...state,
         quantity: decrementedQuantity,
-        price: payload * decrementedQuantity,
+        total: payload * decrementedQuantity,
       };
   }
 };
