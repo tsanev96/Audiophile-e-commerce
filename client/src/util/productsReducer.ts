@@ -28,7 +28,5 @@ export const productsReducer = (
         quantity: decrementedQuantity,
         price: payload * decrementedQuantity,
       };
-    case ProductActions.AddToCart:
-      return state;
   }
 };

@@ -22,7 +22,7 @@ export const CartPopUp: React.FC = () => {
         </div>
         <div className={`${rootClass}__body`}>
           {cart.map((product) => (
-            <div className="product-info">
+            <div key={product.id} className="product-info">
               <Image
                 mobile={categoryEarphonesImages.mobile}
                 tablet={categoryEarphonesImages.mobile}
@@ -33,12 +33,7 @@ export const CartPopUp: React.FC = () => {
                 <Copy text={product.name} theme="dark" />
                 <Copy text={`$${product.price}`} theme="dark" />
               </div>
-              <ProductActionButtons
-                product={product}
-                state={{ quantity: product.quantity, price: product.price }}
-                onHandleAddToCart={() => {}}
-                dispatch={() => {}}
-              />
+              <ProductActionButtons product={product} />
             </div>
           ))}
         </div>

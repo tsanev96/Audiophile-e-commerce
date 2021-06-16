@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { Action, ProductActions } from "../actions/productActions";
+import { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 import { CartProduct } from "../types/cartProduct";
 
@@ -7,12 +6,7 @@ export const useCart = () => {
   const { cart, setCart } = useContext(CartContext);
 
   console.log(cart);
-  return (product: CartProduct, dispatch: React.Dispatch<Action>) => {
-    dispatch({
-      type: ProductActions.AddToCart,
-      payload: product.price,
-    });
-
+  return (product: CartProduct) => {
     const products = [...cart];
     const findIndexProduct = products.findIndex(
       (prod) => prod.id === product.id

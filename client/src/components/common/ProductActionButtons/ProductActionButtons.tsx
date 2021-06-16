@@ -1,28 +1,32 @@
-import React from "react";
-import { Action, ProductActions } from "../../../actions/productActions";
+import React, { useReducer } from "react";
+import { ProductActions } from "../../../actions/productActions";
+import { useCart } from "../../../hooks/cart";
 import { Product } from "../../../types/product";
-import { Button } from "../Button/Button";
+import {
+  ProductReducerState,
+  productsReducer,
+} from "../../../util/productsReducer";
+import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart";
 
 interface ProductActionButtonsProps {
-  dispatch: (value: Action) => void;
   product: Product;
-  state: {
-    quantity: number;
-    price: number;
-  };
-  onHandleAddToCart: () => void;
   renderAddToCart?: boolean;
 }
 
 export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   product,
-  state,
-  dispatch,
-  onHandleAddToCart,
   renderAddToCart = false,
 }) => {
-  console.log("state disp", state);
   const rootClass = "product-action-buttons";
+
+  const addProductToCart = useCart();
+
+  const initialState: ProductReducerState = {
+    quantity: 1,
+    price: product.price,
+  };
+  const [state, dispatch] = useReducer(productsReducer, initialState);
+
   return (
     <div className={rootClass}>
       <div className="quantity-container btn">
@@ -51,7 +55,9 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
         </button>
       </div>
       {renderAddToCart && (
-        <Button text="ADD TO CART" onClick={onHandleAddToCart} />
+        <ButtonAddToCart
+          onClick={() => addProductToCart({ ...product, ...state })}
+        />
       )}
     </div>
   );
