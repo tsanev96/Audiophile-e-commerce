@@ -21,6 +21,7 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   onHandleAddToCart,
   renderAddToCart = false,
 }) => {
+  console.log("state disp", state);
   const rootClass = "product-action-buttons";
   return (
     <div className={rootClass}>

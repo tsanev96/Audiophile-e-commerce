@@ -35,7 +35,7 @@ export const CartPopUp: React.FC = () => {
               </div>
               <ProductActionButtons
                 product={product}
-                state={{ quantity: 1, price: product.price }}
+                state={{ quantity: product.quantity, price: product.price }}
                 onHandleAddToCart={() => {}}
                 dispatch={() => {}}
               />

@@ -6,6 +6,7 @@ import { CartProduct } from "../types/cartProduct";
 export const useCart = () => {
   const { cart, setCart } = useContext(CartContext);
 
+  console.log(cart);
   return (product: CartProduct, dispatch: React.Dispatch<Action>) => {
     dispatch({
       type: ProductActions.AddToCart,

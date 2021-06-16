@@ -51,7 +51,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
           state={state}
           dispatch={dispatch}
           onHandleAddToCart={() =>
-            addProductToCart({ ...product, quantity: 1 }, dispatch)
+            addProductToCart({ ...product, quantity: state.quantity }, dispatch)
           }
           renderAddToCart
         />
