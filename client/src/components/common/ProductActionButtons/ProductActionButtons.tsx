@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { useEffect } from "react";
 import { ProductActions } from "../../../actions/productActions";
 import { useCart } from "../../../hooks/cart";
 import { Product } from "../../../types/product";
@@ -12,26 +13,43 @@ interface ProductActionButtonsProps {
   product: Product;
   renderAddToCart?: boolean;
   quantity?: number;
+  onQuantityChange: (quantity: number) => void;
 }
 
 export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   product,
   renderAddToCart = false,
   quantity,
+  onQuantityChange,
 }) => {
   const rootClass = "product-action-buttons";
 
   const addProductToCart = useCart();
 
-  const currentQuantity = quantity ? quantity : 1;
   const initialState: ProductReducerState = {
-    quantity: currentQuantity,
-    total: product.price * currentQuantity,
+    quantity: 1,
+    total: product.price * 1,
   };
 
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
-  console.log("current quantity", state.quantity, state.total);
+  console.log("state", state);
+  useEffect(() => {
+    onQuantityChange(state.quantity);
+  }, [state.quantity]);
+
+  const handleRaiseQuantity = () =>
+    dispatch({
+      type: ProductActions.Increment,
+      payload: product.price,
+    });
+
+  const handleLowerQuantity = () => {
+    dispatch({
+      type: ProductActions.Decrement,
+      payload: product.price,
+    });
+  };
 
   return (
     <div className={rootClass}>
@@ -40,27 +58,11 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
           renderAddToCart && "quantity-container-margin"
         }`}
       >
-        <button
-          className="drop"
-          onClick={() =>
-            dispatch({
-              type: ProductActions.Decrement,
-              payload: product.price,
-            })
-          }
-        >
+        <button className="drop" onClick={handleLowerQuantity}>
           -
         </button>
         <span>{state.quantity}</span>
-        <button
-          className="up"
-          onClick={() =>
-            dispatch({
-              type: ProductActions.Increment,
-              payload: product.price,
-            })
-          }
-        >
+        <button className="up" onClick={handleRaiseQuantity}>
           +
         </button>
       </div>

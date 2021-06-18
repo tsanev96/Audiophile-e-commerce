@@ -40,6 +40,7 @@ export const CartPopUp: React.FC = () => {
               <ProductActionButtons
                 product={product}
                 quantity={product.quantity}
+                onQuantityChange={() => {}}
               />
             </div>
           ))}

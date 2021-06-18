@@ -31,7 +31,13 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
         <Headline text={product.name} level="h3" theme="dark" />
         <Copy text={product.description} theme="dark" />
         <div className="price">$ {product.price}</div>
-        <ProductActionButtons product={product} renderAddToCart />
+        <ProductActionButtons
+          product={product}
+          renderAddToCart
+          onQuantityChange={(quanity: number) => {
+            console.log("quantity", quanity);
+          }}
+        />
         <div className={`${rootClass}__features`}>
           <Headline level="h4" text="FEATURES" theme="dark" />
           <Copy text={product.features} theme="dark" opacity="big" size="lg" />
