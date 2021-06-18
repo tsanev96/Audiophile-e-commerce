@@ -29,9 +29,9 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
     total: product.price * currentQuantity,
   };
 
-  console.log("current quantity", currentQuantity);
-
   const [state, dispatch] = useReducer(productsReducer, initialState);
+
+  console.log("current quantity", state.quantity, state.total);
 
   return (
     <div className={rootClass}>

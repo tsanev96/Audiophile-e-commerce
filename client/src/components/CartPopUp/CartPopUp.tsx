@@ -9,16 +9,20 @@ import { Copy } from "../common/Copy/Copy";
 import { Button } from "../common/Button/Button";
 
 export const CartPopUp: React.FC = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
 
   const rootClass = "cart-pop-up";
+
+  const handleRemoveAll = () => setCart([]);
 
   return (
     <Wrapper className={rootClass}>
       <div>
         <div className={`${rootClass}__header`}>
           <Headline level="h5" text={`CART (${cart.length})`} theme="dark" />
-          <button className="btn">Remove all</button>
+          <button className="btn" onClick={handleRemoveAll}>
+            Remove all
+          </button>
         </div>
         <div className={`${rootClass}__body`}>
           {cart.map((product) => (
