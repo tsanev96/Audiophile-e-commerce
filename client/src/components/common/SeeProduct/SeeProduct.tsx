@@ -7,7 +7,7 @@ import { Includes } from "./components/Includes";
 import { ProductImages } from "./components/ProductImages";
 import { Wrapper } from "../Wrapper/Wrapper";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
-import { ProductActionButtons } from "../ProductActionButtons/ProductActionButtons";
+import { ProductActionButtons } from "./components/ProductActionButtons";
 import { useCart } from "../../../hooks/cart";
 
 interface SeeProductProps {

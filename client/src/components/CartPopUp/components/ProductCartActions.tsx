@@ -1,60 +1,51 @@
 import React, { useReducer } from "react";
 import { useEffect } from "react";
-import { ProductActions } from "../../../actions/productActions";
+import { ProductActions as ProductActionsProps } from "../../../actions/productActions";
 import { CartProduct } from "../../../types/cartProduct";
 import { Product } from "../../../types/product";
 import {
   ProductReducerState,
   productsReducer,
 } from "../../../util/productsReducer";
+import { ProductActions } from "../../common/ProductActions/ProductActions";
 
 interface ProductCartActionsProps {
-  product: Product;
-  onCartChange?: (product: CartProduct) => void;
+  product: CartProduct;
+  onCartChange: (product: CartProduct) => void;
 }
 
 export const ProductCartActions: React.FC<ProductCartActionsProps> = ({
   product,
   onCartChange,
 }) => {
-  const rootClass = "product-action-buttons";
-
   const initialState: ProductReducerState = {
-    quantity: 1,
-    total: product.price * 1,
+    quantity: product.quantity,
+    total: product.price * product.quantity,
   };
 
   const [state, dispatch] = useReducer(productsReducer, initialState);
 
   useEffect(() => {
-    if (onCartChange) {
-      onCartChange({ ...product, ...state });
-    }
+    onCartChange({ ...product, ...state });
   }, [state]);
 
   const handleRaiseQuantity = () =>
     dispatch({
-      type: ProductActions.Increment,
+      type: ProductActionsProps.Increment,
       payload: product.price,
     });
 
   const handleLowerQuantity = () =>
     dispatch({
-      type: ProductActions.Decrement,
+      type: ProductActionsProps.Decrement,
       payload: product.price,
     });
 
   return (
-    <div className={rootClass}>
-      <div className="quantity-container">
-        <button className="drop" onClick={handleLowerQuantity}>
-          -
-        </button>
-        <span>{state.quantity}</span>
-        <button className="up" onClick={handleRaiseQuantity}>
-          +
-        </button>
-      </div>
-    </div>
+    <ProductActions
+      onHandleRaiseQuantity={handleRaiseQuantity}
+      onHandleLowerQuantity={handleLowerQuantity}
+      quantity={state.quantity}
+    />
   );
 };

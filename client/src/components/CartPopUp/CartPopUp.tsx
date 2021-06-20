@@ -1,17 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import { Headline } from "../common/Headline/Headline";
-import { Image } from "../common/Image/Image";
 import { Wrapper } from "../common/Wrapper/Wrapper";
-import { categoryEarphonesImages } from "../../util/imageExports/category-earphones";
-import { Copy } from "../common/Copy/Copy";
 import { Button } from "../common/Button/Button";
-import { useCart } from "../../hooks/cart";
-import { ProductCartActions } from "../common/ProductCartActions/ProductCartActions";
+import { CartProducts } from "./components/CartProducts";
 
 export const CartPopUp: React.FC = () => {
   const { cart, setCart } = useContext(CartContext);
-  const addProductToCart = useCart();
 
   const rootClass = "cart-pop-up";
 
@@ -27,24 +22,7 @@ export const CartPopUp: React.FC = () => {
           </button>
         </div>
         <div className={`${rootClass}__body`}>
-          {cart.map((product) => (
-            <div key={product.id} className="product-info">
-              <Image
-                mobile={categoryEarphonesImages.mobile}
-                tablet={categoryEarphonesImages.mobile}
-                desktop={categoryEarphonesImages.mobile}
-                alt=""
-              />
-              <div className="info">
-                <Copy text={product.name} theme="dark" />
-                <Copy text={`$${product.total}`} theme="dark" />
-              </div>
-              <ProductCartActions
-                product={product}
-                onCartChange={addProductToCart}
-              />
-            </div>
-          ))}
+          <CartProducts />
         </div>
         <div className={`${rootClass}__footer`}>
           <Button text="CHECKOUT" isFullWidth />
