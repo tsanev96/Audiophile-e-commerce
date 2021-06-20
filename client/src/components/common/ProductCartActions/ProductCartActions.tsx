@@ -7,16 +7,15 @@ import {
   ProductReducerState,
   productsReducer,
 } from "../../../util/productsReducer";
-import { ButtonAddToCart } from "../ButtonAddToCart/ButtonAddToCart";
 
-interface ProductActionButtonsProps {
+interface ProductCartActionsProps {
   product: Product;
-  onAddToCart: (product: CartProduct) => void;
+  onCartChange?: (product: CartProduct) => void;
 }
 
-export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
+export const ProductCartActions: React.FC<ProductCartActionsProps> = ({
   product,
-  onAddToCart,
+  onCartChange,
 }) => {
   const rootClass = "product-action-buttons";
 
@@ -26,6 +25,12 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   };
 
   const [state, dispatch] = useReducer(productsReducer, initialState);
+
+  useEffect(() => {
+    if (onCartChange) {
+      onCartChange({ ...product, ...state });
+    }
+  }, [state]);
 
   const handleRaiseQuantity = () =>
     dispatch({
@@ -50,7 +55,6 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
           +
         </button>
       </div>
-      <ButtonAddToCart onClick={() => onAddToCart({ ...product, ...state })} />
     </div>
   );
 };

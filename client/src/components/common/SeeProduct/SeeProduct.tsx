@@ -8,6 +8,7 @@ import { ProductImages } from "./components/ProductImages";
 import { Wrapper } from "../Wrapper/Wrapper";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 import { ProductActionButtons } from "../ProductActionButtons/ProductActionButtons";
+import { useCart } from "../../../hooks/cart";
 
 interface SeeProductProps {
   product: Product;
@@ -21,6 +22,8 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
 }) => {
   const rootClass = "see-product";
 
+  const addProductToCart = useCart();
+
   return (
     <Wrapper className={rootClass}>
       <button className="btn-go-back" onClick={onHandleGoBack}>
@@ -33,10 +36,7 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
         <div className="price">$ {product.price}</div>
         <ProductActionButtons
           product={product}
-          renderAddToCart
-          onQuantityChange={(quanity: number) => {
-            console.log("quantity", quanity);
-          }}
+          onAddToCart={addProductToCart}
         />
         <div className={`${rootClass}__features`}>
           <Headline level="h4" text="FEATURES" theme="dark" />

@@ -4,12 +4,14 @@ import { Headline } from "../common/Headline/Headline";
 import { Image } from "../common/Image/Image";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { categoryEarphonesImages } from "../../util/imageExports/category-earphones";
-import { ProductActionButtons } from "../common/ProductActionButtons/ProductActionButtons";
 import { Copy } from "../common/Copy/Copy";
 import { Button } from "../common/Button/Button";
+import { useCart } from "../../hooks/cart";
+import { ProductCartActions } from "../common/ProductCartActions/ProductCartActions";
 
 export const CartPopUp: React.FC = () => {
   const { cart, setCart } = useContext(CartContext);
+  const addProductToCart = useCart();
 
   const rootClass = "cart-pop-up";
 
@@ -37,10 +39,9 @@ export const CartPopUp: React.FC = () => {
                 <Copy text={product.name} theme="dark" />
                 <Copy text={`$${product.total}`} theme="dark" />
               </div>
-              <ProductActionButtons
+              <ProductCartActions
                 product={product}
-                quantity={product.quantity}
-                onQuantityChange={() => {}}
+                onCartChange={addProductToCart}
               />
             </div>
           ))}
