@@ -9,6 +9,8 @@ import { Wrapper } from "../Wrapper/Wrapper";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
 import { ProductActionButtons } from "./components/ProductActionButtons";
 import { useCart } from "../../../hooks/cart";
+import { useState } from "react";
+import { useEffect } from "react";
 
 interface SeeProductProps {
   product: Product;
@@ -22,7 +24,13 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
 }) => {
   const rootClass = "see-product";
 
+  useEffect(() => {});
+  const [quantity, setQuantity] = useState(1);
+
   const addProductToCart = useCart();
+
+  const handleQuantityChange = (newQuantity: number) =>
+    setQuantity(newQuantity);
 
   return (
     <Wrapper className={rootClass}>
@@ -33,10 +41,13 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
       <div className="info">
         <Headline text={product.name} level="h3" theme="dark" />
         <Copy text={product.description} theme="dark" />
-        <div className="price">$ {product.price}</div>
+        <div className="price">
+          $ {product.price} {quantity > 1 && `($ ${product.price * quantity})`}
+        </div>
         <ProductActionButtons
           product={product}
           onAddToCart={addProductToCart}
+          onQuantityChange={handleQuantityChange}
         />
         <div className={`${rootClass}__features`}>
           <Headline level="h4" text="FEATURES" theme="dark" />

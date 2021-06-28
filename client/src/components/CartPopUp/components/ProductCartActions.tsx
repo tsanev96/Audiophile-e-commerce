@@ -2,7 +2,6 @@ import React, { useReducer } from "react";
 import { useEffect } from "react";
 import { ProductActions as ProductActionsProps } from "../../../actions/productActions";
 import { CartProduct } from "../../../types/cartProduct";
-import { Product } from "../../../types/product";
 import {
   ProductReducerState,
   productsReducer,

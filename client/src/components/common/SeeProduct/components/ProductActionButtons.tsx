@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { useEffect } from "react";
 import { ProductActions as ProductActionsDetails } from "../../../../actions/productActions";
 import { CartProduct } from "../../../../types/cartProduct";
 import { Product } from "../../../../types/product";
@@ -12,11 +13,13 @@ import { ProductActions } from "../../ProductActions/ProductActions";
 interface ProductActionButtonsProps {
   product: Product;
   onAddToCart: (product: CartProduct) => void;
+  onQuantityChange?: (quantity: number) => void;
 }
 
 export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   product,
   onAddToCart,
+  onQuantityChange,
 }) => {
   const initialState: ProductReducerState = {
     quantity: 1,
@@ -24,6 +27,12 @@ export const ProductActionButtons: React.FC<ProductActionButtonsProps> = ({
   };
 
   const [state, dispatch] = useReducer(productsReducer, initialState);
+
+  useEffect(() => {
+    if (onQuantityChange) {
+      onQuantityChange(state.quantity);
+    }
+  }, [state.quantity]);
 
   const handleRaiseQuantity = () =>
     dispatch({
