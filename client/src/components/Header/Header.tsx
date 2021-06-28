@@ -1,13 +1,21 @@
-import React, { useContext } from "react";
+import { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext";
 import { NavigationContext } from "../../context/navigationContext";
 import { NavigationContextDetails } from "../../types/navigationContext";
+import { CartPopUp } from "../CartPopUp/CartPopUp";
 import { HeaderDesktop } from "./HeaderDesktop";
 import { HeaderMobile } from "./HeaderMobile";
 
-export const Header = () => {
-  const showBasket = () => {
-    console.log("basket clicked");
-  };
+export interface HeaderProps {
+  onBasketClick: () => void;
+  isCartPopUpShown?: boolean;
+}
+
+export const Header: React.FC = () => {
+  const [isCartPopUpShown, setIsCartPopUpShown] = useState(false);
+
+  const showBasket = () => setIsCartPopUpShown((prevState) => !prevState);
 
   const { currentPage } = useContext(
     NavigationContext
@@ -15,9 +23,13 @@ export const Header = () => {
 
   return (
     <div className="header">
-      <HeaderMobile onShowBasket={showBasket} />
-      <HeaderDesktop onShowBasket={showBasket} />
+      <HeaderMobile onBasketClick={showBasket} />
+      <HeaderDesktop
+        onBasketClick={showBasket}
+        isCartPopUpShown={isCartPopUpShown}
+      />
       {currentPage && <div className="header__page">{currentPage}</div>}
+      {isCartPopUpShown && <CartPopUp device="mobile" />}
     </div>
   );
 };

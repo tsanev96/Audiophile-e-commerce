@@ -5,17 +5,18 @@ import { CartProduct } from "../types/cartProduct";
 export const useCart = () => {
   const { cart, setCart } = useContext(CartContext);
 
-  return (newProduct: CartProduct) => {
+  return (product: CartProduct) => {
     const products = [...cart];
     const findIndexProduct = products.findIndex(
-      (prod) => prod.id === newProduct.id
+      (prod) => prod.id === product.id
     );
 
     if (findIndexProduct >= 0) {
-      products[findIndexProduct].quantity = newProduct.quantity;
+      products[findIndexProduct].quantity = product.quantity;
+      products[findIndexProduct].total = product.total;
       setCart([...products]);
     } else {
-      setCart([...products, newProduct]);
+      setCart([...products, product]);
     }
   };
 };

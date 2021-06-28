@@ -1,11 +1,14 @@
 import { Action, ProductActions } from "../actions/productActions";
 
-type State = {
+export type ProductReducerState = {
   quantity: number;
-  price: number;
+  total: number;
 };
 
-export const productsReducer = (state: State, action: Action): State => {
+export const productsReducer = (
+  state: ProductReducerState,
+  action: Action
+): ProductReducerState => {
   const { type, payload } = action;
   const { quantity } = state;
 
@@ -15,7 +18,7 @@ export const productsReducer = (state: State, action: Action): State => {
       return {
         ...state,
         quantity: incrementedQuantity,
-        price: payload * incrementedQuantity,
+        total: payload * incrementedQuantity,
       };
 
     case ProductActions.Decrement:
@@ -23,9 +26,7 @@ export const productsReducer = (state: State, action: Action): State => {
       return {
         ...state,
         quantity: decrementedQuantity,
-        price: payload * decrementedQuantity,
+        total: payload * decrementedQuantity,
       };
-    case ProductActions.AddToCart:
-      return state;
   }
 };

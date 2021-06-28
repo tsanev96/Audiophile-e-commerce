@@ -1,16 +1,16 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { Product } from "../../../types/product";
 import { Copy } from "../Copy/Copy";
 import { Headline } from "../Headline/Headline";
 import { Image } from "../Image/Image";
-import { productsReducer } from "../../../util/productsReducer";
-import { ProductActions } from "../../../actions/productActions";
 import { Includes } from "./components/Includes";
-import { ContainerButtons } from "./components/ContainerButtons";
 import { ProductImages } from "./components/ProductImages";
-import { useCart } from "../../../hooks/cart";
 import { Wrapper } from "../Wrapper/Wrapper";
 import img from "../../../assets/cart/image-xx99-mark-two-headphones.jpg";
+import { ProductActionButtons } from "./components/ProductActionButtons";
+import { useCart } from "../../../hooks/cart";
+import { useState } from "react";
+import { useEffect } from "react";
 
 interface SeeProductProps {
   product: Product;
@@ -22,20 +22,15 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
   product,
   onHandleGoBack,
 }) => {
-  const addProductToCart = useCart();
-  const initialState = { quantity: 1, price: product.price };
-  const [state, dispatch] = useReducer(productsReducer, initialState);
-
   const rootClass = "see-product";
 
-  const handleAddToCart = () => {
-    dispatch({
-      type: ProductActions.AddToCart,
-      payload: product.price,
-    });
+  useEffect(() => {});
+  const [quantity, setQuantity] = useState(1);
 
-    addProductToCart({ ...product, quantity: state.quantity });
-  };
+  const addProductToCart = useCart();
+
+  const handleQuantityChange = (newQuantity: number) =>
+    setQuantity(newQuantity);
 
   return (
     <Wrapper className={rootClass}>
@@ -46,14 +41,14 @@ export const SeeProduct: React.FC<SeeProductProps> = ({
       <div className="info">
         <Headline text={product.name} level="h3" theme="dark" />
         <Copy text={product.description} theme="dark" />
-        <div className="price">$ {state.price}</div>
-        <ContainerButtons
+        <div className="price">
+          $ {product.price} {quantity > 1 && `($ ${product.price * quantity})`}
+        </div>
+        <ProductActionButtons
           product={product}
-          state={state}
-          dispatch={dispatch}
-          onHandleAddToCart={handleAddToCart}
+          onAddToCart={addProductToCart}
+          onQuantityChange={handleQuantityChange}
         />
-
         <div className={`${rootClass}__features`}>
           <Headline level="h4" text="FEATURES" theme="dark" />
           <Copy text={product.features} theme="dark" opacity="big" size="lg" />

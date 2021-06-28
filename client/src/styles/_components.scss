@@ -2,6 +2,7 @@
 @import "../components/Header/header";
 @import "../components/Footer/footer";
 @import "../components/common/ProductsPageGrid/products-page-grid";
+@import "../components/CartPopUp/cart-pop-up";
 
 // Repeated Components
 @import "../components/common/Headline/headline";
@@ -20,3 +21,4 @@
 @import "../components/common/ImageText/image-text";
 @import "../components/common/ProductItem/product-item";
 @import "../components/common/SeeProduct/see-product";
+@import "../components/common/ProductActions/product-actions";

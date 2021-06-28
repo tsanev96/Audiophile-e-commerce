@@ -1,0 +1,29 @@
+.product-actions {
+  // margin-bottom: rem(60);
+  display: flex;
+
+  .quantity-container {
+    @include flexCenter;
+    padding: rem(15) rem(20);
+    border-radius: rem(5);
+    background: $light-gray-color;
+    text-align: center;
+    color: $secondary-color;
+
+    & > * {
+      min-width: rem(15);
+    }
+
+    .quantity {
+      margin: 0 rem(5);
+    }
+    .drop,
+    .up {
+      cursor: pointer;
+      transition: 0.4s;
+      &:hover {
+        background: $dark-gray-color;
+      }
+    }
+  }
+}
