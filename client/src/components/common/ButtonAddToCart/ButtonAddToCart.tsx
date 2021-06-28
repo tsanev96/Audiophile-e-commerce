@@ -6,5 +6,9 @@ interface ButtonAddToCartProps {
 }
 
 export const ButtonAddToCart: FC<ButtonAddToCartProps> = ({ onClick }) => {
-  return <Button text="ADD TO CART" onClick={onClick} />;
+  return (
+    <div style={{ marginLeft: "20px" }}>
+      <Button text="ADD TO CART" onClick={onClick} />
+    </div>
+  );
 };

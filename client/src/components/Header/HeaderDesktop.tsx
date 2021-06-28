@@ -7,7 +7,7 @@ import { Navigation } from "../common/Navigation/Navigation";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { HeaderProps } from "./Header";
 
-export const HeaderDesktop: React.FC<HeaderProps> = ({ onShowBasket }) => {
+export const HeaderDesktop: React.FC<HeaderProps> = ({ onBasketClick }) => {
   const rootWrapper = "header";
 
   return (
@@ -20,7 +20,7 @@ export const HeaderDesktop: React.FC<HeaderProps> = ({ onShowBasket }) => {
         />
         <Navigation data={navLinks} className={`${rootWrapper}__nav`} />
         <div className={`${rootWrapper}__icon`}>
-          <AiOutlineShoppingCart onClick={onShowBasket} />
+          <AiOutlineShoppingCart onClick={onBasketClick} />
         </div>
         <CartPopUp />
       </div>

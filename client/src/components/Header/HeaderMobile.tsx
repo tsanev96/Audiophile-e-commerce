@@ -5,7 +5,7 @@ import { Headline } from "../common/Headline/Headline";
 import { Navigation } from "../common/Navigation/Navigation";
 import { HeaderProps } from "./Header";
 
-export const HeaderMobile: React.FC<HeaderProps> = ({ onShowBasket }) => {
+export const HeaderMobile: React.FC<HeaderProps> = ({ onBasketClick }) => {
   const [isHamburgerMenuClicked, setIsHamburgerMenuClicked] = useState(false);
 
   const onHamburgerMenuClick = () =>
@@ -34,7 +34,7 @@ export const HeaderMobile: React.FC<HeaderProps> = ({ onShowBasket }) => {
         level="h4"
       />
       <div className={`${rootWrapper}__icon`}>
-        <AiOutlineShoppingCart onClick={onShowBasket} />
+        <AiOutlineShoppingCart onClick={onBasketClick} />
       </div>
       <div
         className={`header__nav-mobile-wrapper ${
