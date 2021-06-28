@@ -5,7 +5,11 @@ import { Wrapper } from "../common/Wrapper/Wrapper";
 import { Button } from "../common/Button/Button";
 import { CartProducts } from "./components/CartProducts";
 
-export const CartPopUp: React.FC = () => {
+interface CartPopUpProps {
+  device: "mobile" | "desktop";
+}
+
+export const CartPopUp: React.FC<CartPopUpProps> = ({ device }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const rootClass = "cart-pop-up";
@@ -13,7 +17,7 @@ export const CartPopUp: React.FC = () => {
   const handleRemoveAll = () => setCart([]);
 
   return (
-    <Wrapper className={rootClass}>
+    <Wrapper className={`${rootClass} ${rootClass}__${device}`}>
       <div>
         <div className={`${rootClass}__header`}>
           <Headline level="h5" text={`CART (${cart.length})`} theme="dark" />

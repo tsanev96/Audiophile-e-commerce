@@ -1,7 +1,6 @@
 .cart-pop-up {
-  background: $white-color;
-
   padding: rem(30);
+  background: $white-color;
 
   &__header {
     @include flexCenter;
@@ -40,5 +39,21 @@
         }
       }
     }
+  }
+}
+
+.cart-pop-up__mobile {
+  @include desktop {
+    display: none;
+  }
+}
+
+.cart-pop-up__desktop {
+  @include mobile {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
   }
 }

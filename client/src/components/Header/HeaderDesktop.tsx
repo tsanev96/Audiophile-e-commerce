@@ -7,7 +7,10 @@ import { Navigation } from "../common/Navigation/Navigation";
 import { Wrapper } from "../common/Wrapper/Wrapper";
 import { HeaderProps } from "./Header";
 
-export const HeaderDesktop: React.FC<HeaderProps> = ({ onBasketClick }) => {
+export const HeaderDesktop: React.FC<HeaderProps> = ({
+  onBasketClick,
+  isCartPopUpShown,
+}) => {
   const rootWrapper = "header";
 
   return (
@@ -22,7 +25,7 @@ export const HeaderDesktop: React.FC<HeaderProps> = ({ onBasketClick }) => {
         <div className={`${rootWrapper}__icon`}>
           <AiOutlineShoppingCart onClick={onBasketClick} />
         </div>
-        <CartPopUp />
+        {isCartPopUpShown && <CartPopUp device="desktop" />}
       </div>
     </Wrapper>
   );

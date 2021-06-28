@@ -9,6 +9,7 @@ import { HeaderMobile } from "./HeaderMobile";
 
 export interface HeaderProps {
   onBasketClick: () => void;
+  isCartPopUpShown?: boolean;
 }
 
 export const Header: React.FC = () => {
@@ -23,9 +24,12 @@ export const Header: React.FC = () => {
   return (
     <div className="header">
       <HeaderMobile onBasketClick={showBasket} />
-      <HeaderDesktop onBasketClick={showBasket} />
+      <HeaderDesktop
+        onBasketClick={showBasket}
+        isCartPopUpShown={isCartPopUpShown}
+      />
       {currentPage && <div className="header__page">{currentPage}</div>}
-      {isCartPopUpShown && <CartPopUp />}
+      {isCartPopUpShown && <CartPopUp device="mobile" />}
     </div>
   );
 };
